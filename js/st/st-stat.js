@@ -13,6 +13,10 @@ st.stat = {
 		"cha": "Force of personality and ability to inspire others.",
 		"emp": "Emotional stability and how well they cope with stress.",
 			
-		"hp": "Hit points: ability to withstand injury."
+		"hp": "Hit points: ability to withstand injury.",
+		"hth": "Capacity to inflict injury in hand-to-hand combat.",
+		"load": "Weight a character may carry over and extended period.",
+		"PSI": "Ability to use psionic skills",
+		"Stress": "Character's current state of mind or mental health."
 	}
 };

@@ -58,8 +58,7 @@
 	position: absolute;
 	top: 0px;
 	left: 300px;
-	width: 314px;
-	height: 100px;
+	width: 320px;
 }
 
 .st-overview-item {
@@ -71,6 +70,21 @@
 
 .st-overview-item-searchName {
 	display: none;
+}
+
+.st-overview .st-overview-item .st-overview-label {
+	display: inline-block;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	width: 70px;
+}
+
+.st-overview .st-overview-item .st-overview-value {
+	display: inline-block;
+}
+
+.st-overview .st-overview-item.st-overview-item-quote .st-overview-value {
+	display: block;
 }
 
 /* demographics */
@@ -88,6 +102,13 @@
 	font-size: 12px;
 	margin-top: 0.6px;
 	text-transform: uppercase;
+}
+
+.st-demographics .st-demographics-item .st-demographic-label {
+	display: inline-block;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	width: 50px;
 }
 
 /* attributes */

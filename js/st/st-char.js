@@ -99,6 +99,7 @@ st.character = {
 			spec.overview["ship"] = csvSpec["ship"].value;
 			spec.overview["position"] = csvSpec["position"].value;
 			spec.overview["searchName"] = searchName;
+			spec.overview["quote"] = csvSpec["quote"].value;
 
 			spec.demographics = {};
 			spec.demographics["sex"] = csvSpec["sex"].value;
@@ -238,30 +239,12 @@ st.character = {
 		that.renderDemographics();
 		that.renderAttributes();
 		//that.renderSkills();
-		//that.renderActionPoints();
 		//that.renderToHits();
 		
 		$(".st-page").removeClass("st-initial-state");
 	},
 	renderReset: function() {
 		st.character.$pageft.html("");
-	},
-	renderActionPoints: function() {
-		st.log("rendering action points");
-
-		var spec = st.character.spec;
-		var attr = spec.attributes;
-		var dex = attr.dex;
-		var ap = Math.floor(dex / 10.0) + 4;
-		
-		// attr
-		var $attr = $("<div class=\"st-section st-action-points\"></div>");
-		var y = (18 - ap) * 42.5;
-		$elm = $("<span class=\"st-item st-action-point\""
-				 + " style=\"top: " + y + "px\""
-				 + "></span>");
-		$attr.append($elm);
-		st.character.$pageft.append($attr);
 	},
 	renderAllegiance: function() {
 		st.log("rendering allegiance");
@@ -308,7 +291,9 @@ st.character = {
 		// page
 		var $demographics = $("<div class=\"st-section st-demographics\"></div>");
 		_.each(demographics, function(value, key) {
-			var h = key + ": " + value;
+			var h = "<span class=\"st-demographic-label\">" + key + "</span> "
+		          + "<span class=\"st-demographic-value\">" + value + "</span>";
+			
 			$elm = $("<span class=\"st-item st-demographics-item st-demographics-item-" + key + "\">" + h + "</span>");
 			$demographics.append($elm);
 		});
@@ -323,7 +308,8 @@ st.character = {
 		// page
 		var $overview = $("<div class=\"st-section st-overview\"></div>");
 		_.each(overview, function(value, key) {
-			var h = key + ": " + value;
+			var h = "<span class=\"st-overview-label\">" + key + "</span> "
+			      + "<span class=\"st-overview-value\">" + value + "</span>";
 			if (h.indexOf(",") > -1) {
 				h = h.split(",");
 				h = h.join("<br/>");
