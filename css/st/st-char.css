@@ -56,8 +56,8 @@
 
 .st-overview {
 	position: absolute;
-	top: 100px;
-	left: 250px;
+	top: 0px;
+	left: 300px;
 	width: 314px;
 	height: 100px;
 }
@@ -66,31 +66,20 @@
 	display: block;
 	font-size: 12px;
 	margin-top: 0.6px;
+	text-transform: uppercase;
 }
 
-.st-overview-item-rank {
-	margin-left: 64px;
-}
-
-.st-overview-item-assignment {
-	margin-left: 100px;
-}
-
-.st-overview-item-ship {
-	margin-left: 204px;
-}
-
-.st-overview-item-position {
-	margin-left: 188px;
+.st-overview-item-searchName {
+	display: none;
 }
 
 /* demographics */
 
 .st-demographics {
 	position: absolute;
-	top: 100px;
+	top: 0px;
 	left: 628px;
-	width: 50px;
+	width: 100px;
 	height: 100px;
 }
 
@@ -98,7 +87,7 @@
 	display: block;
 	font-size: 12px;
 	margin-top: 0.6px;
-	text-align: right;
+	text-transform: uppercase;
 }
 
 /* attributes */
@@ -106,21 +95,49 @@
 .st-attributes {
 	position: absolute;
 	top: 218px;
-	left: 78px;
-	width: 614px;
+	left: 0px;
+	width: 800px;
 }
 
 .st-attribute {
-	display: inline-block;
-	float: left;
+	display: block;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
 	font-size: 12px;
-	font-weight: bold;
 	height: 20px;
 	margin: 0 0 0 0;
 	padding: 0 20px 0 0;
-	position: relative;
-	text-align: right;
-	width: 87.4px;
+	text-transform: uppercase;
+}
+
+.st-attribute .st-attribute-label {
+	display: inline-block;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	text-align: center;
+	width: 80px;
+}
+
+.st-attribute .st-attribute-label [class^=char] {
+	display: inline-block;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	text-align: center;
+	width: 14px;
+}
+
+.st-attribute .st-attribute-value {
+	display: inline-block;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	text-align: center;
+	width: 40px;
+}
+
+.st-attribute .st-attribute-description {
+	font-weight: normal;
+}
+
+.st-attribute.st-attribute-per {
+	margin-top: 10px;
 }
 
 /* endurance */

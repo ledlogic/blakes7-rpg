@@ -1,11 +1,4 @@
 /* st-char.js */
-
-/* 
- * The display models are optimized for the output display, rather than being truncated.
- * Since the order is known in the output, rendering of css is simplified.
- * In another layout, it could be adjusted to use css-specific overrides for position
- * of individual attributes.
- */
 st.character = {
 	spec: {},
 	$pageft: null,
@@ -29,7 +22,7 @@ st.character = {
 		$.ajax("js/char/" + uri)
 		.done(function(data, status, jqxhr) {
 			st.character.spec = data.spec;
-			setTimeout(st.character.render,10);
+			setTimeout(st.character.render, 10);
 		})
 		.fail(function() {
 			alert("Error: unable to load character.");
@@ -84,6 +77,7 @@ st.character = {
 				break;
 			}			
 		}
+		
 		//st.log("nameCol[" + nameCol + "]");
 		if (nameCol) {
 			var csvSpec = {};
@@ -102,8 +96,6 @@ st.character = {
 			spec.allegiance = csvSpec["allegiance"].value;
 			spec.overview = {};
 			spec.overview["name"] = csvSpec["name"].value;
-			spec.overview["rank"] = "";
-			spec.overview["assignment"] = "";
 			spec.overview["ship"] = csvSpec["ship"].value;
 			spec.overview["position"] = csvSpec["position"].value;
 			spec.overview["searchName"] = searchName;
@@ -114,15 +106,16 @@ st.character = {
 			
 			var baseMap = st.character.charMapStrStatBetweenBases;
 			spec.attributes = {};
-			spec.attributes["str"] = baseMap(csvSpec["str"].value, 20, 100);
-			spec.attributes["end"] = baseMap(csvSpec["end"].value, 20, 100);
-			spec.attributes["int"] = baseMap(csvSpec["rea"].value, 20, 100);
-			spec.attributes["dex"] = baseMap(csvSpec["dex"].value, 20, 100);
-			spec.attributes["cha"] = baseMap(csvSpec["cha"].value, 20, 100);
-			spec.attributes["luc"] = baseMap(csvSpec["per"].value, 20, 100);
-			spec.attributes["psi"] = st.character.charAverageStat(baseMap(csvSpec["emp"].value, 20, 100), baseMap(csvSpec["wil"].value, 20, 100));
-			
-			spec.endurance = {};
+			spec.attributes["str"] = csvSpec["str"].value;
+			spec.attributes["siz"] = csvSpec["siz"].value;
+			spec.attributes["end"] = csvSpec["end"].value;
+			spec.attributes["ini"] = csvSpec["ini"].value;
+			spec.attributes["dex"] = csvSpec["dex"].value;
+			spec.attributes["per"] = csvSpec["per"].value;
+			spec.attributes["wil"] = csvSpec["wil"].value;
+			spec.attributes["cha"] = csvSpec["cha"].value;
+			spec.attributes["rea"] = csvSpec["rea"].value;
+			spec.attributes["emp"] = csvSpec["emp"].value;
 			
 			spec.skills = {};
 			var skills0 = {};
@@ -229,34 +222,10 @@ st.character = {
 			spec.tohits = {
 				"modern": st.character.charAverageStat(dex, skills1["marksmanship-modern-weapon"]),
 				"hth": st.character.charAverageStat(dex, unarmed),
-				"bareDamage": st.character.bareHandDamage(str, unarmed)
 			},
 			
 			setTimeout(st.character.render, 10);
 		}
-	},
-	bareHandDamage: function(str, unarmed) {
-		var die = 0;
-		var mod = 0;
-		if (str >= 01 && str <= 25) {
-			die = 1;
-			mod = -3;  
-		} else if (str >= 26 && str <= 50) {
-			die = 1;
-		} else if (str >= 51 && str <= 75) {
-			die = 1;
-			mod = 3;  
-		} else if (str >= 76 && str <= 100) {
-			die = 2;
-			mod = -3;  
-		} else if (str >= 101 && str <= 125) {
-			die = 2;
-		} else if (str >= 126 && str <= 150) {
-			die = 2;
-			mod = 3;  
-		}
-		mod += Math.floor(unarmed / 10);
-		return die + "D10" + (mod < 0 ? mod : "") + (mod > 0 ? "+" + mod : "");
 	},
 	render: function() {
 		st.log("rendering char");
@@ -268,10 +237,9 @@ st.character = {
 		that.renderOverview();
 		that.renderDemographics();
 		that.renderAttributes();
-		that.renderEndurance();
-		that.renderSkills();
-		that.renderActionPoints();
-		that.renderToHits();
+		//that.renderSkills();
+		//that.renderActionPoints();
+		//that.renderToHits();
 		
 		$(".st-page").removeClass("st-initial-state");
 	},
@@ -298,22 +266,16 @@ st.character = {
 	renderAllegiance: function() {
 		st.log("rendering allegiance");
 
-		var size = 8/17 * 328;
-		var left = 8/17 * 107;
-		var top = 8/17 * 112;
+		var left = 0;
+		var top = 0;
+		var size = 200;
 		var spec = st.character.spec;
-		var all = spec.allegiance.toLowerCase().replace(/\s/g, "-");
-		var img = "";
-		
-		if (all == "blake's-7") {
-			img = "img/blake's-7/" + st.character.spec.overview.searchName.toLowerCase() + ".jpg";			
-		} else {
-			img = "img/st-" + all + ".png";
-		}
-		
+		var all = spec.allegiance.toLowerCase().replace(/\s\'/g, "-").replace(/\'/g, "");
+		var img = "img/blake's-7/" + st.character.spec.overview.searchName.toLowerCase() + ".jpg";			
+				
 		// attr
 		var $attr = $("<div class=\"st-section st-allegiance\" style=\"left: " + left + "px; top: " + top + "px;\">"
-				      + "<img src=\"" + img + "\" width=\"" + size + "\" />"
+				      + "<img src=\"" + img + "\" height=\"" + size + "\" />"
 				      + "</div>");
 		st.character.$pageft.append($attr);
 	},
@@ -326,35 +288,16 @@ st.character = {
 		// attr
 		var $attr = $("<div class=\"st-section st-attributes\"></div>");
 		_.each(attr, function(value, key) {
-			var h = value;
+			var desc = st.stat.descriptions[key];
+			var h = "<span class=\"st-attribute-label\">" + key + "</span> "
+			      + "<span class=\"st-attribute-value\">" + value + "</span>"
+			      + "<span class=\"st-attribute-description\">" + desc + "</span>";
 			$elm = $("<span class=\"st-item st-attribute st-attribute-" + key + "\">" + h + "</span>");
 			$attr.append($elm);
 		});
 		st.character.$pageft.append($attr);
-	},
-	renderEndurance: function() {
-		st.log("rendering endurance");
-
-		var spec = st.character.spec;
-				
-		var attr = spec.attributes;
 		
-		var endurance = spec.endurance;
-		endurance.inactsave = 20;
-		endurance.uncthresh = 5;
-		endurance.maxopoend = attr.end;
-		endurance.curropoend = " ";
-		endurance.woundhealrate = Math.floor(attr.end / 20);
-		endurance.fathealrate = Math.floor(attr.end / 10);	
-		
-		// endurance
-		var $endurance = $("<div class=\"st-section st-endurance\"></div>");
-		_.each(endurance, function(value, key) {
-			var h = value;
-			$elm = $("<span class=\"st-item st-endurance-item st-endurance-item-" + key + "\">" + h + "</span>");
-			$endurance.append($elm);
-		});
-		st.character.$pageft.append($endurance);
+	    $(".st-attribute-label").lettering();
 	},
 	renderDemographics: function() {
 		st.log("rendering demographics");
@@ -365,7 +308,7 @@ st.character = {
 		// page
 		var $demographics = $("<div class=\"st-section st-demographics\"></div>");
 		_.each(demographics, function(value, key) {
-			var h = value + "";
+			var h = key + ": " + value;
 			$elm = $("<span class=\"st-item st-demographics-item st-demographics-item-" + key + "\">" + h + "</span>");
 			$demographics.append($elm);
 		});
@@ -380,7 +323,7 @@ st.character = {
 		// page
 		var $overview = $("<div class=\"st-section st-overview\"></div>");
 		_.each(overview, function(value, key) {
-			var h = value + "";
+			var h = key + ": " + value;
 			if (h.indexOf(",") > -1) {
 				h = h.split(",");
 				h = h.join("<br/>");
@@ -481,20 +424,6 @@ st.character = {
 			});
 			st.character.$pageft.append($skillsI);
 		}		
-	},
-	renderStats: function() {
-		st.log("rendering stats");
-
-		var spec = st.character.spec;
-
-		var stats = spec.stats;
-		var $stats = $("<div class=\"st-section st-stats\"></div>");
-		_.each(stats, function(value, key) {
-			var h = value;
-			var $elm = $("<span class=\"st-item st-stat st-stat-" + key + "\" title=\"" + key.toUpperCase() + "\">" + h + "</span>");
-			$stats.append($elm);
-		});
-		st.character.$pageft.append($stats);
 	},
 	renderToHits: function() {
 		st.log("rendering to hits");
