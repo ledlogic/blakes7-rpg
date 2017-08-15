@@ -1,0 +1,17 @@
+/* st-print.css */
+
+h1 {
+	display: none;	
+}
+
+.progress {
+	display: none;	
+}
+
+.st-nav {
+	display: none;
+}
+
+.st-footer {
+	display: none;
+}
