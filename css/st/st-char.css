@@ -4,7 +4,7 @@
 
 .st-page {
 	position: relative;
-	height: 1311px;
+	height: 1268px;
 	width: 1013px;
 	overflow: hidden;
 }
@@ -300,7 +300,6 @@
 }
 
 .st-skills {
-	line-height: 0px;
 	margin: 0;
 	padding: 0;
 	position: absolute;
@@ -313,11 +312,11 @@
 }
 
 .st-skills-1 {
-	left: 240px;
+	left: 340px;
 }
 
 .st-skills-2 {
-	left: 480px;
+	left: 680px;
 }
 
 .st-skill {
@@ -328,63 +327,45 @@
 .st-skill-item-key {
 	position: absolute;
 	display: inline-block;
-	font-size: 10px;
+	font-size: 12px;
 	left: 0px;
-	line-height: 14px;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-align: center;
 	width: 30px;
 }
 
-.st-skill-item-key {
+.no-border .st-skill-item-key, .st-skill-item-key {
+	border-bottom: 1px solid #ccc;
 	position: absolute;
 	display: inline-block;
-	font-size: 10px;
+	font-size: 12px;
 	left: 0px;
-	line-height: 14px;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-align: left;
 	width: 177px;
 }
 
-.st-skill-item {
+.no-border .st-skill-item, .st-skill-item {
+	border-bottom: 1px solid #ccc;
 	position: absolute;
 	display: inline-block;
-	font-size: 10px;
+	font-size: 12px;
 	left: 156px;
-	line-height: 14px;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-align: center;
 	width: 30px;
 }
 
-.st-tohits {
-	height: 100px;
-	left: 428px;
+.st-grid {
 	position: absolute;
-	top: 244px;
-	width: 264px;
+	top: 930px;
+	height: 362px;
+	width: 866px;
 }
 
-.st-item.st-tohit {
-	display: inline-block;
-	font-size: 10px;
-	height: 26px;
-	margin: 1px;
-	padding: 8px 2px 0 0;
-	position: absolute;
-	text-align: right;
-	width: 86px;
-}
-
-.st-tohit-hth {
-	left: 87px;
-}
-
-.st-tohit-bareDamage {
-	left: 90px;
-	top: 24px;
+.st-grid img {
+	width: 866px;
 }

@@ -221,6 +221,7 @@ st.character = {
 		that.renderStress();
 		that.renderAttributes();
 		that.renderSkills();
+		that.renderGrid();
 		
 		$(".st-page").removeClass("st-initial-state");
 	},
@@ -280,6 +281,15 @@ st.character = {
 		});
 		st.character.$pageft.append($demographics);
 	},
+	renderGrid: function() {
+		st.log("rendering grid");
+		
+		// page
+		var $grid = $("<div class=\"st-section st-grid\">"
+				  + "<img src=\"img/st-grid.png\"/>"
+				  + "</div>");
+		st.character.$pageft.append($grid);
+	},
 	renderOverview: function() {
 		st.log("rendering overview");
 
@@ -334,7 +344,7 @@ st.character = {
 						+" style=\"top: " + y + "px\""
 						+">" + h + "</span>");
 				$skillsI.append(elm);
-				y += 17.6;
+				y += 20;
 			});
 			st.character.$pageft.append($skillsI);
 		}		
