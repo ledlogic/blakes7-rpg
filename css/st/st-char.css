@@ -234,6 +234,7 @@
 }
 
 .st-attribute .st-attribute-description {
+	font-size: 10px;
 	font-weight: normal;
 }
 
@@ -302,25 +303,21 @@
 	line-height: 0px;
 	margin: 0;
 	padding: 0;
+	position: absolute;
+	top: 500px;
 	width: 100px;
 }
 
 .st-skills-0 {
-	position: absolute;
-	top: 350px;
-	left: 80px;
+	left: 0px;
 }
 
 .st-skills-1 {
-	position: absolute;
-	top: 350px;
-	left: 290px;
+	left: 240px;
 }
 
 .st-skills-2 {
-	position: absolute;
-	top: 350px;
-	left: 498px;
+	left: 480px;
 }
 
 .st-skill {
@@ -362,167 +359,6 @@
 	padding: 0 0 0 0;
 	text-align: center;
 	width: 30px;
-}
-
-.st-skill-item-key-artistic-expression-1 {
-	padding-left: 98px;
-}
-
-.st-skill-item-key-language-1 {
-	padding-left: 58px;
-}
-
-.st-skill-item-key-language-2,
-.st-skill-item-key-language-3,
-.st-skill-item-key-language-4,
-.st-skill-item-key-language-5,
-.st-skill-item-key-language-6 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-life-sciences-1 {
-	padding-left: 72px;
-}
-
-.st-skill-item-key-life-sciences-2,
-.st-skill-item-key-life-sciences-3,
-.st-skill-item-key-life-sciences-4,
-.st-skill-item-key-life-sciences-5 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-medical-sciences-1 {
-	padding-left: 88px;
-}
-
-.st-skill-item-key-medical-sciences-2 {
-	padding-left: 110px;
-}
-
-.st-skill-item-key-medical-sciences-3,
-.st-skill-item-key-medical-sciences-4,
-.st-skill-item-key-medical-sciences-5,
-.st-skill-item-key-medical-sciences-6 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-physical-sciences-1 {
-	padding-left: 88px;
-}
-
-.st-skill-item-key-physical-sciences-2,
-.st-skill-item-key-physical-sciences-3,
-.st-skill-item-key-physical-sciences-4 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-planetary-sciences-1 {
-	padding-left: 98px;
-}
-
-.st-skill-item-key-planetary-sciences-2,
-.st-skill-item-key-planetary-sciences-3,
-.st-skill-item-key-planetary-sciences-4 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-planetary-survival-1 {
-	padding-left: 88px;
-}
-
-.st-skill-item-key-planetary-survival-2,
-.st-skill-item-key-planetary-survival-3,
-.st-skill-item-key-planetary-survival-4 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-social-sciences-1 {
-	padding-left: 84px;
-}
-
-.st-skill-item-key-social-sciences-2 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-social-sciences-3 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-social-sciences-4 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-social-sciences-5 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-social-sciences-6 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-social-sciences-7 {
-	visibility: hidden;
-}
-
-.st-skill-item-key-social-sciences-8 {
-	visibility: hidden;
-}
-
-.st-skill-item-key-space-sciences-1 {
-	padding-left: 82px;
-}
-
-.st-skill-item-key-space-sciences-2 {
-	visibility: hidden;
-}
-
-.st-skill-item-key-space-sciences-3 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-space-sciences-4 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-space-sciences-5 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-sports-1 {
-	padding-left: 36px;
-}
-
-.st-skill-item-key-trivia-1 {
-	padding-left: 36px;
-}
-
-.st-skill-item-key-trivia-2 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-trivia-3 {
-	padding-left: 24px;
-}
-
-.st-skill-item-key-vehicle-operation-1 {
-	padding-left: 98px;
-}
-
-.st-action-points {
-	height: 766px;
-	left: 698px;
-	position: absolute;
-	top: 134px;
-	width: 38px;
-}
-
-.st-item.st-action-point {
-	border: 1px solid black;
-	display: inline-block;
-	height: 39.5px;
-	margin: 1px;
-	position: absolute;
-	width: 32px;
 }
 
 .st-tohits {
