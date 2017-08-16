@@ -146,7 +146,7 @@
 }
 
 .st-stress .st-stress-item .st-stress-item-desc {
-	border-left: 1px solid #000;
+	border-left: 2px solid #000;
 	border-top: 1px solid #000;
 	border-right: 1px solid #000;
 	border-bottom: 1px solid #000;
@@ -160,7 +160,13 @@
 	-o-border-radius: 2px;
 }
 
-.st-item.st-stress-header {
+.st-stress .st-stress-item .st-stress-item-checkbox-5,
+.st-stress .st-stress-item .st-stress-item-checkbox-10,
+.st-stress .st-stress-item .st-stress-item-checkbox-15 {
+	border-width: 1px 0px 1px 2px;
+}
+
+.st-stress .st-item.st-stress-header {
 	font-size: 12px;
 	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
 	font-weight: bolder;
@@ -168,16 +174,16 @@
 	width: 200px;
 }
 
-.st-item.st-stress-header .st-stress-header-stress {
+.st-stress .st-item.st-stress-header .st-stress-header-stress {
 	display: inline-block;
 	font-size: 12px;
 	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
 	font-weight: bolder;
 	text-transform: uppercase;
-	width: 320px;
+	width: 322px;
 }
 
-.st-item.st-stress-header .st-stress-header-penalty {
+.st-stress .st-item.st-stress-header .st-stress-header-penalty {
 	font-size: 12px;
 	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
 	font-weight: bolder;
@@ -209,7 +215,7 @@
 	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
 	font-weight: bolder;
 	text-align: center;
-	width: 80px;
+	width: 50px;
 }
 
 .st-attribute .st-attribute-label [class^=char] {

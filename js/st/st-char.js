@@ -440,7 +440,7 @@ st.character = {
 		for (var i=0; i>=-4; i--) {
 			h = "";
 			for (var j=0; j<20; j++) {
-				h+= "<span class=\"st-stress-item-checkbox\">&nbsp;</span>";
+				h+= "<span class=\"st-stress-item-checkbox st-stress-item-checkbox-" + j + "\">&nbsp;</span>";
 			}
 			h+= "<span class=\"st-stress-item-desc\">" + i*10 + "% / " + i + "</span>";
 
