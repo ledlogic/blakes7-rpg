@@ -47,6 +47,16 @@ st.character = {
 			encoding: "UTF-8"
 		});
 	},
+	calcHp: function() {
+		var spec = st.character.spec;
+		
+		var str = parseInt(spec.attributes["str"], 10);
+		var siz = parseInt(spec.attributes["siz"], 10);
+		var end = parseInt(spec.attributes["end"], 10);
+		
+		var hp = Math.ceil((str + siz + end) / 3.0 + 10);
+		return hp;
+	},
 	charMapStrStatBetweenBases: function(strStat, baseIn, baseOut) {
 		if (!baseIn) baseIn = 1;
 		if (!baseOut) baseOut = 1;
@@ -107,16 +117,22 @@ st.character = {
 			
 			var baseMap = st.character.charMapStrStatBetweenBases;
 			spec.attributes = {};
+			
+			// physical
 			spec.attributes["str"] = csvSpec["str"].value;
 			spec.attributes["siz"] = csvSpec["siz"].value;
 			spec.attributes["end"] = csvSpec["end"].value;
 			spec.attributes["ini"] = csvSpec["ini"].value;
 			spec.attributes["dex"] = csvSpec["dex"].value;
+			
+			// mental
 			spec.attributes["per"] = csvSpec["per"].value;
 			spec.attributes["wil"] = csvSpec["wil"].value;
 			spec.attributes["cha"] = csvSpec["cha"].value;
 			spec.attributes["rea"] = csvSpec["rea"].value;
 			spec.attributes["emp"] = csvSpec["emp"].value;
+			
+			spec.attributes["hp"] = st.character.calcHp();
 			
 			spec.skills = {};
 			var skills0 = {};
@@ -237,6 +253,7 @@ st.character = {
 		that.renderAllegiance();
 		that.renderOverview();
 		that.renderDemographics();
+		that.renderStress();
 		that.renderAttributes();
 		//that.renderSkills();
 		//that.renderToHits();
@@ -275,7 +292,7 @@ st.character = {
 			var h = "<span class=\"st-attribute-label\">" + key + "</span> "
 			      + "<span class=\"st-attribute-value\">" + value + "</span>"
 			      + "<span class=\"st-attribute-description\">" + desc + "</span>";
-			$elm = $("<span class=\"st-item st-attribute st-attribute-" + key + "\">" + h + "</span>");
+			var $elm = $("<span class=\"st-item st-attribute st-attribute-" + key + "\">" + h + "</span>");
 			$attr.append($elm);
 		});
 		st.character.$pageft.append($attr);
@@ -294,7 +311,7 @@ st.character = {
 			var h = "<span class=\"st-demographic-label\">" + key + "</span> "
 		          + "<span class=\"st-demographic-value\">" + value + "</span>";
 			
-			$elm = $("<span class=\"st-item st-demographics-item st-demographics-item-" + key + "\">" + h + "</span>");
+			var $elm = $("<span class=\"st-item st-demographics-item st-demographics-item-" + key + "\">" + h + "</span>");
 			$demographics.append($elm);
 		});
 		st.character.$pageft.append($demographics);
@@ -317,7 +334,7 @@ st.character = {
 			if (!h) {
 				h = "&nbsp;";
 			}
-			$elm = $("<span class=\"st-item st-overview-item st-overview-item-" + key + "\">" + h + "</span>");
+			var $elm = $("<span class=\"st-item st-overview-item st-overview-item-" + key + "\">" + h + "</span>");
 			$overview.append($elm);
 		});
 		st.character.$pageft.append($overview);
@@ -410,6 +427,27 @@ st.character = {
 			});
 			st.character.$pageft.append($skillsI);
 		}		
+	},
+	renderStress: function() {
+		st.log("rendering stress");
+
+		// page
+		var $stress = $("<div class=\"st-section st-stress\"></div>");
+		var h = "<span class=\"st-item st-stress-header-stress\">Stress</span>"
+		      + "<span class=\"st-item st-stress-header-penalty\">Penalty</span>";
+		var $elm = $("<span class=\"st-item st-stress-header\">" + h + "</span>");
+		$stress.append($elm);
+		for (var i=0; i>=-4; i--) {
+			h = "";
+			for (var j=0; j<20; j++) {
+				h+= "<span class=\"st-stress-item-checkbox\">&nbsp;</span>";
+			}
+			h+= "<span class=\"st-stress-item-desc\">" + i*10 + "% / " + i + "</span>";
+
+			$elm = $("<span class=\"st-item st-stress-item\">" + h + "</span>");
+			$stress.append($elm);
+		}
+		st.character.$pageft.append($stress);
 	},
 	renderToHits: function() {
 		st.log("rendering to hits");

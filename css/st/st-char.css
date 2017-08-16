@@ -58,7 +58,7 @@
 	position: absolute;
 	top: 0px;
 	left: 300px;
-	width: 320px;
+	width: 440px;
 }
 
 .st-overview-item {
@@ -93,7 +93,7 @@
 	position: absolute;
 	top: 0px;
 	left: 628px;
-	width: 100px;
+	width: 200px;
 	height: 100px;
 }
 
@@ -111,11 +111,85 @@
 	width: 50px;
 }
 
+/* stress */
+.st-stress {
+	position: absolute;
+	top: 120px;
+	left: 300px;
+	width: 800px;
+}
+
+.st-stress .st-stress-item {
+	border-right: 1px solid #000;
+	font-size: 10px;
+	display: block;
+	height: 18px;
+	padding: 0px;
+	
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+.st-stress .st-stress-item .st-stress-item-checkbox {
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	display: inline-block;
+	width: 16px;
+	
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+.st-stress .st-stress-item .st-stress-item-desc {
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+.st-item.st-stress-header {
+	font-size: 12px;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	text-transform: uppercase;
+	width: 200px;
+}
+
+.st-item.st-stress-header .st-stress-header-stress {
+	display: inline-block;
+	font-size: 12px;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	text-transform: uppercase;
+	width: 320px;
+}
+
+.st-item.st-stress-header .st-stress-header-penalty {
+	font-size: 12px;
+	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-weight: bolder;
+	text-transform: uppercase;
+	width: 200px;
+}
+
 /* attributes */
 
 .st-attributes {
 	position: absolute;
-	top: 218px;
+	top: 250px;
 	left: 0px;
 	width: 800px;
 }
