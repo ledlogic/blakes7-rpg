@@ -138,7 +138,8 @@
 	border-bottom: 1px solid #000;
 	display: inline-block;
 	width: 16px;
-	
+
+	background-color: #fff;	
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
@@ -215,6 +216,7 @@
 	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
 	font-weight: bolder;
 	text-align: center;
+	vertical-align: top;
 	width: 50px;
 }
 
@@ -243,17 +245,17 @@
 }
 
 /* combat */
+
 .st-combat {
 	position: absolute;
 	top: 250px;
 	left: 604px;
 	width: 320px;
-	border: 1px solid red;
 }
 
 .st-combat .st-attribute .st-attribute-value {
-	width: 120px;
 	text-align: left;
+	width: 220px;
 }
 
 /* endurance */
