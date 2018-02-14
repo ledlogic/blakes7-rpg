@@ -197,7 +197,7 @@
 	position: absolute;
 	top: 250px;
 	left: 0px;
-	width: 800px;
+	width: 604px;
 }
 
 .st-attribute {
@@ -240,6 +240,20 @@
 
 .st-attribute.st-attribute-per {
 	margin-top: 10px;
+}
+
+/* combat */
+.st-combat {
+	position: absolute;
+	top: 250px;
+	left: 604px;
+	width: 320px;
+	border: 1px solid red;
+}
+
+.st-combat .st-attribute .st-attribute-value {
+	width: 120px;
+	text-align: left;
 }
 
 /* endurance */

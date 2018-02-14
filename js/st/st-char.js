@@ -58,6 +58,65 @@ st.character = {
 		var hp = Math.ceil((str + siz + end) / 3.0 + 10);
 		return hp;
 	},
+	calcHth: function() {
+		var spec = st.character.spec;
+		
+		var str = parseInt(spec.attributes["str"], 10);
+		var siz = parseInt(spec.attributes["siz"], 10);
+		var tot = str + siz;
+		
+		var hth = 0;
+		
+		switch (true) {
+			case tot <= 6:
+				hth = -1;
+				break;
+			case tot <= 12:
+				hth = 0;
+				break;
+			case tot <= 20:
+				hth = 1;
+				break;
+			case tot <= 32:
+				hth = 2;
+				break;
+			default:
+				hth = 3;
+				break;
+		}
+		
+		return hth;	
+	},
+	calcLoad: function() {
+		var spec = st.character.spec;
+		
+		var str = parseInt(spec.attributes["str"], 10);
+		var end = parseInt(spec.attributes["end"], 10);
+		var loadkg = str + end;
+		var loadlb = Math.round(loadkg * 2.20462);
+		
+		var ret = loadkg + " kg (" + loadlb + " lb)";
+		return ret;
+	},
+	calcPsi: function() {
+		var spec = st.character.spec;
+		
+		var emp = parseInt(spec.attributes["emp"], 10);
+		var wil = parseInt(spec.attributes["wil"], 10);
+		var isPsi = spec.demographics["psionic"] === "true";
+		
+		var ret = isPsi ? (emp + wil) : 0;
+		return ret;
+	},
+	calcRng: function() {
+		var spec = st.character.spec;
+		
+		var str = parseInt(spec.attributes["str"], 10);
+		var rngm = 2 * str; // meters
+		var rngft = Math.round(3.28084 * rngm); // ft
+		var ret = rngm + " m (" + rngft + " ft)";
+		return ret;
+	},
 	charMapStrStatBetweenBases: function(strStat, baseIn, baseOut) {
 		if (!baseIn) baseIn = 1;
 		if (!baseOut) baseOut = 1;
@@ -115,6 +174,7 @@ st.character = {
 			spec.demographics = {};
 			spec.demographics["sex"] = csvSpec["sex"].value;
 			spec.demographics["race"] = csvSpec["race"].value;
+			spec.demographics["psionic"] = csvSpec["psionic"].value;
 			
 			var baseMap = st.character.charMapStrStatBetweenBases;
 			spec.attributes = {};
@@ -221,6 +281,7 @@ st.character = {
 		that.renderDemographics();
 		that.renderStress();
 		that.renderAttributes();
+		that.renderCombat();
 		that.renderSkills();
 		that.renderGrid();
 		
@@ -258,6 +319,31 @@ st.character = {
 			var h = "<span class=\"st-attribute-label\">" + key + "</span> "
 			      + "<span class=\"st-attribute-value\">" + value + "</span>"
 			      + "<span class=\"st-attribute-description\">" + desc + "</span>";
+			var $elm = $("<span class=\"st-item st-attribute st-attribute-" + key + "\">" + h + "</span>");
+			$attr.append($elm);
+		});
+		st.character.$pageft.append($attr);
+		
+	    $(".st-attribute-label").lettering();
+	},
+	renderCombat: function() {
+		st.log("rendering combat");
+		
+		st.character.spec.combat = {
+			"hth": st.character.calcHth(),
+			"rng": st.character.calcRng(),
+			"cap": st.character.calcLoad(),
+			"psi": st.character.calcPsi()
+		};
+
+		var spec = st.character.spec;
+		var attr = spec.combat;
+
+		// attr
+		var $attr = $("<div class=\"st-section st-combat\"></div>");
+		_.each(attr, function(value, key) {
+			var h = "<span class=\"st-attribute-label\">" + key + "</span> "
+			      + "<span class=\"st-attribute-value\">" + value + "</span>";
 			var $elm = $("<span class=\"st-item st-attribute st-attribute-" + key + "\">" + h + "</span>");
 			$attr.append($elm);
 		});

@@ -5,7 +5,8 @@ Ship,Scorpio,Scorpio,Scorpio,Scorpio,Scorpio,Scorpio,Scorpio,Scorpio,Scorpio
 Position,Electronics and computer expert,Commander,Alien guerrilla fighter,Muscle,Glamorous space smuggler and skilled pilot,Skilled thief,Weaponsmith,Pilot,Hired Gun
 Sex,Male,Male,Female,Male,Female,Male,Female,Male,Female
 Race,Human,Human,Auron,Human,Human,Human,Human,Human,Human
-Quote,“Trust is only dangerous when you have to rely on it.”,“If we stop now then all we have done is senseless killing and destruction”,"“They're dying down there, dying by the thousands”","“...if you touch him again, I'm going to break your arms and legs off.”",“Maybe some dreams are worth having.”,“Just goes to prove what I've always said. Stealing's quicker.”,“Would homo sapians be able to live without conflict? Wouldn't they just die from lack of excitement?”,"“Well, everyone's entitled to one really bad mistake.”",I don't give my allegiance at all. I sell my skill.
+Psionic,false,false,true,false,false,false,false,false,false
+Quote,“Trust is only dangerous when you have to rely on it.”,“If we stop now then all we have done is senseless killing and destruction”,"“They're dying down there, dying by the thousands”","“...if you touch him again, I'm going to break your arms and legs off.”",“Maybe some dreams are worth having.”,“Just goes to prove what I've always said. Stealing's quicker.”,“Would homo sapians be able to live without conflict? Wouldn't they just die from lack of excitement?”,"“Well, everyone's entitled to one really bad mistake.”","“I don't give my allegiance at all. I sell my skill.”"
 STR,13,14,10,20,11,11,12,14,12
 SIZ,12,14,11,19,12,8,12,12,10
 END,14,12,12,17,12,12,17,15,14
