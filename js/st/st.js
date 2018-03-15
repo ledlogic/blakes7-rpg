@@ -1,4 +1,5 @@
 /* st.js */
+
 var st = {
 	log: function(s) {
 		if (typeof(window.console) != "undefined") {

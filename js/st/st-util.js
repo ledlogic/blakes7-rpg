@@ -1,4 +1,5 @@
 /* st-util.js */
+
 _.mixin({
   capitalize2: function(string) {
 	var words = string.split(" ");

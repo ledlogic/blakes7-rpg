@@ -1,4 +1,5 @@
 /* st-nav.js */
+
 st.nav = {
 	characters: [],
 	init: function() {

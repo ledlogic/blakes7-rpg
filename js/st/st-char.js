@@ -1,4 +1,5 @@
 /* st-char.js */
+
 st.character = {
 	spec: {},
 	$pageft: null,

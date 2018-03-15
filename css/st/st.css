@@ -1,11 +1,11 @@
-/* ep.css */
+/* st.css */
 
 * {
-	font-family: 'AYT Avalon', sans-serif; /* eclipse phase table font is lato */
+	font-family: 'AYT Avalon', sans-serif;
 }
 
 p {
-	font-family: 'AYT Avalon', sans-serif; /* eclipse phase body font is sabon */
+	font-family: 'AYT Avalon', sans-serif;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Microgramma Extd D Medium', sans-serif; /* eclipse phase title font is heliotype */
+	font-family: 'Microgramma Extd D Medium', sans-serif;
 	text-transform: uppercase;
 }
 
