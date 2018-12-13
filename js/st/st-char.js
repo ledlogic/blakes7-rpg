@@ -373,7 +373,6 @@ st.character = {
 		
 		// page
 		var $grid = $("<div class=\"st-section st-grid\">"
-				  + "<img src=\"img/st-grid.png\"/>"
 				  + "</div>");
 		st.character.$pageft.append($grid);
 	},
@@ -439,6 +438,10 @@ st.character = {
 	renderStress: function() {
 		st.log("rendering stress");
 
+		var spec = st.character.spec;
+		var attr = spec.attributes;
+		var wil = parseInt(spec.attributes["wil"], 10);
+
 		// page
 		var $stress = $("<div class=\"st-section st-stress\"></div>");
 		var h = "<span class=\"st-item st-stress-header-stress\">Stress</span>"
@@ -447,8 +450,11 @@ st.character = {
 		$stress.append($elm);
 		for (var i=0; i>=-4; i--) {
 			h = "";
-			for (var j=0; j<20; j++) {
+			for (var j=0; j<wil; j++) {
 				h+= "<span class=\"st-stress-item-checkbox st-stress-item-checkbox-" + j + "\">&nbsp;</span>";
+			}
+			for (var j=wil; j<20; j++) {
+				h+= "<span class=\"st-stress-item-checkbox " + (j === wil ? "first" : "") + " is-not-visible\">&nbsp;</span>";
 			}
 			h+= "<span class=\"st-stress-item-desc\">" + i*10 + "% / " + i + "</span>";
 
