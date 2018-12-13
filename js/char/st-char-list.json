@@ -54,6 +54,11 @@
 			"allegiance": "Blakes-7",
 			"name": "Soolin",
 			"uri": "st-blakes-7.csv:Soolin"
+		},
+		{
+			"allegiance": "Blakes-7",
+			"name": "Veron",
+			"uri": "st-blakes-7.csv:Veron"
 		}
 	]	
 }
