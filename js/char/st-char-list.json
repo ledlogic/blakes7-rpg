@@ -2,6 +2,11 @@
 	"characters": [
 		{
 			"allegiance": "Blakes-7",
+			"name": "Avalon (Android)",
+			"uri": "st-blakes-7.csv:Avalon"
+		},
+		{
+			"allegiance": "Blakes-7",
 			"name": "Kerr Avon",
 			"uri": "st-blakes-7.csv:Avon"
 		},
@@ -19,6 +24,11 @@
 			"allegiance": "Blakes-7",
 			"name": "Olag Gan",
 			"uri": "st-blakes-7.csv:Gan"
+		},
+		{
+			"allegiance": "Blakes-7",
+			"name": "Project Gan",
+			"uri": "st-blakes-7.csv:ProjectGan"
 		},
 		{
 			"allegiance": "Blakes-7",
