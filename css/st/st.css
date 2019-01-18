@@ -13,7 +13,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Microgramma Extd D Medium', sans-serif;
+	font-family: 'Microgramma Extd D Medium', 'Microgramma Extd D', sans-serif;
 	text-transform: uppercase;
 }
 
