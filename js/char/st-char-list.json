@@ -64,6 +64,11 @@
 			"allegiance": "Blakes-7",
 			"name": "Shya",
 			"uri": "st-blakes-7.csv:Shya"
+		},
+		{
+			"allegiance": "Blakes-7",
+			"name": "Vest",
+			"uri": "st-blakes-7.csv:Vest"
 		}
 	]	
 }

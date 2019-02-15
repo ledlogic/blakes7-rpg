@@ -1,81 +1,83 @@
-Stat,Avon,Blake,Cally,Gan,Jenna,Vila,Dayna,Tarrant,Soolin,Avalon,ProjectGan,Veron,Shya
-Name,Kerr Avon,Rog Blake,Cally,Olag Gan,Jenna Stannis,Vila Restal,Dayna Mellanby,Del Tarrant,Soolin,Avalon (Android),Gan (Android),Veron,Shya
-Allegiance,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Resistance,Blake's 7,Resistance,Resistance
-Ship,Liberator,Liberator,Liberator,Liberator,Liberator,Liberator,Scorpio,Scorpio,Scorpio,Servalan,Servalan,Resistance,Resistance
-Position,Electronics and computer expert,Commander,Alien guerrilla fighter,Muscle,Glamorous space smuggler and skilled pilot,Skilled thief,Weaponsmith,Pilot,Hired Gun,Converted Resistance Leader,Droid Bounty Hunter,Scavenger/Pilot
-Sex,Male,Male,Female,Male,Female,Male,Female,Male,Female,Female,Male,Unknown
-Race,Human,Human,Auron,Human,Human,Human,Human,Human,Human,Cyborg,Human,Human,Human
-Psionic,false,false,true,false,false,false,false,false,false,false,false,false,false
-Quote,Trust is only dangerous when you have to rely on it.,If we stop now then all we have done is senseless killing and destruction,"They're dying down there, dying by the thousands","...if you touch him again, I'm going to break your arms and legs off.",Maybe some dreams are worth having.,Just goes to prove what I've always said. Stealing's quicker.,Would homo sapians be able to live without conflict? Wouldn't they just die from lack of excitement?,"Well, everyone's entitled to one really bad mistake.",I don't give my allegiance at all. I sell my skill.,But you won't end the opposition.  You'll never end it...  I will.,"We are sure that woman's Avalon, aren't we?","I have a debt to pay.","I can change the future in a moment."
-STR,13,14,10,20,11,11,12,14,12,16,20,11,18
-SIZ,12,14,11,19,12,8,12,12,10,14,20,10,17
-END,14,12,12,17,12,12,17,15,14,14,20,10,13
-INI,15,11,13,10,15,13,15,16,19,14,10,14,11
-DEX,15,12,11,10,15,20,18,14,17,16,10,18,9
-PER,16,16,12,12,12,15,12,12,16,14,14,14,9
-WIL,16,16,17,12,11,8,14,14,14,14,14,18,9
-CHA,14,19,11,10,12,12,11,14,11,14,8,16,9
-REA,20,18,16,8,16,16,14,13,15,14,12,12,11
-EMP,8,14,18,15,12,12,12,12,11,4,4,12,10
-Administration,15,50,15,15,15,15,15,30,15,15,15,15,15
-Astronomy,0,0,0,0,0,0,0,0,0,0,0,0,0
-Anthropology,0,0,0,0,0,0,0,0,0,0,0,0,0
-Bargain,25,15,5,25,55,60,5,40,55,5,5,15,5
-Biology,5,5,5,5,5,5,5,5,5,5,5,15,5
-Chemistry,5,5,5,5,5,5,5,5,5,5,5,10,5
-Comms Systems,20,20,40,50,30,20,20,20,20,20,50,10,0
-Computer Science,80,15,15,15,15,15,15,15,40,40,25,15,40
-Demolitions,15,15,15,15,15,50,50,15,15,55,15,10,0
-Detector Ops,30,30,50,40,60,30,30,60,30,20,40,5,0
-Disguise,5,5,5,5,5,5,5,5,5,5,5,5,5
-Economics,5,5,5,5,5,5,5,5,5,5,5,5,5
-Electronics,50,30,15,15,15,40,30,15,15,40,25,10,40
-EVA,15,15,15,15,50,15,15,30,15,20,15,0,25
-Farming,10,10,10,60,10,10,10,10,25,10,80,20,10
-Fast Draw,20,0,0,0,0,0,60,0,80,20,0,0,0
-Fast Talk,25,30,10,20,30,70,10,40,20,10,30,20,30
-Firearms,50,45,50,0,40,30,60,50,80,50,10,40,10
-First Aid,15,20,45,60,20,15,15,15,45,15,20,30,15
-Forcewall Systems,50,15,15,15,35,15,15,50,15,10,10,0,25
-Forgery,0,0,0,0,0,0,0,0,0,0,0,10,0
-Gambling,40,5,5,5,5,50,5,5,5,5,5,5,5
-Geology,0,0,0,0,0,0,0,0,0,5,0,5,0
-Gunnery,20,20,20,0,40,40,30,60,20,20,0,0,0
-Heavy Weapons,0,0,25,0,0,0,40,20,0,20,0,0,0
-Hide,60,40,55,30,30,70,50,30,70,15,20,45,15
-History,15,40,15,15,15,15,15,15,15,15,15,15,15
-Interrogation,10,10,10,10,10,10,10,10,10,10,20,10,10
-Law,10,25,10,10,10,10,10,10,10,10,10,10,10
-Leader,30,65,0,0,0,0,0,25,0,40,30,20,0
-Linguistics,5,5,5,5,5,5,5,5,5,30,10,15,5
-Mathematics,60,15,15,15,15,15,15,15,15,15,20,15,15
-Mechanical,20,45,20,60,40,20,20,30,20,20,40,20,20
-Medical,5,5,40,5,5,5,5,5,5,5,5,10,5
-Melee Weapons,20,20,60,80,20,20,60,20,50,20,60,30,20
-Mining,0,0,0,0,0,0,0,0,0,5,0,0,0
-Missle Weapons,10,10,10,10,10,10,60,10,10,10,20,10,10
-Navigation,20,20,20,20,70,20,20,60,20,0,20,0,0
-Physics,20,20,5,5,5,5,5,5,5,15,15,5,5
-Pick Pocket,5,5,5,5,5,70,5,5,5,5,5,15,5
-Pilot,20,20,20,20,80,20,20,70,20,10,40,0,60
-Political Science,10,60,10,10,10,10,10,10,10,40,10,35,10
-Psychology,5,40,5,5,5,5,5,5,5,20,5,15,5
-Research,70,40,20,20,20,20,20,20,20,20,20,20,20
-Recon,55,55,65,40,15,35,65,15,55,50,30,35,45
-Security Systems,25,5,5,5,5,70,5,5,5,20,5,10,5
-Ships' Tactics,20,20,0,0,40,0,0,60,0,10,10,0,15
-Stardrive Ops,15,40,15,15,50,15,15,40,15,0,35,0,0
-Stealth,40,30,40,30,40,60,60,35,60,30,20,15,30
-Streetwise,40,10,10,10,60,70,10,35,50,20,10,10,30
-Surgery,0,0,30,0,0,0,0,0,0,0,0,0,0
-Survival,20,20,60,40,30,10,55,20,80,50,40,20,35
-Swim,25,25,25,25,25,25,25,25,25,20,25,25,25
-Tactics,20,75,40,0,20,0,0,20,0,30,10,20,25
-Teleport Systems,40,40,25,25,25,20,20,20,20,10,35,0,0
-Thrown Weapons,20,20,50,20,20,20,60,20,20,20,20,35,20
-Unarmed Combat,60,40,65,85,50,55,65,50,60,20,60,30,100
-Vehicle (Air),0,0,0,0,0,0,0,0,0,0,0,10,0
-Vehicle (Ground),15,15,15,15,15,15,15,15,15,15,15,15,15
-Vehicle (Water),0,0,0,0,0,0,0,0,0,15,0,10,0
-Weapons Systems,10,10,10,10,10,10,10,10,40,10,30,0,0
-Telepathy,0,0,85,0,0,0,0,0,0,0,20,0,0
+Stat,Avon,Blake,Cally,Gan,Jenna,Vila,Dayna,Tarrant,Soolin,Avalon,ProjectGan,Veron,Shya,Vest
+Name,Kerr Avon,Rog Blake,Cally,Olag Gan,Jenna Stannis,Vila Restal,Dayna Mellanby,Del Tarrant,Soolin,Avalon (Android),Gan (Android),Veron,Shya,Vest
+Allegiance,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Blake's 7,Resistance,Blake's 7,Resistance,Resistance,Resistance
+Ship,Liberator,Liberator,Liberator,Liberator,Liberator,Liberator,Scorpio,Scorpio,Scorpio,Servalan,Servalan,Resistance,Resistance, Resistance
+Position,Electronics and computer expert,Commander,Alien guerrilla fighter,Muscle,Glamorous space smuggler and skilled pilot,Skilled thief,Weaponsmith,Pilot,Hired Gun,Converted Resistance Leader,Droid Bounty Hunter,Scavenger/Pilot,Negotiator
+Sex,Male,Male,Female,Male,Female,Male,Female,Male,Female,Female,Male,Unknown,Male
+Race,Human,Human,Auron,Human,Human,Human,Human,Human,Human,Cyborg,Human,Human,Human,Auron
+Psionic,false,false,true,false,false,false,false,false,false,false,false,false,false,true
+Quote,Trust is only dangerous when you have to rely on it.,If we stop now then all we have done is senseless killing and destruction,"They're dying down there, dying by the thousands","...if you touch him again, I'm going to break your arms and legs off.",Maybe some dreams are worth having.,Just goes to prove what I've always said. Stealing's quicker.,Would homo sapians be able to live without conflict? Wouldn't they just die from lack of excitement?,"Well, everyone's entitled to one really bad mistake.",I don't give my allegiance at all. I sell my skill.,But you won't end the opposition.  You'll never end it...  I will.,"We are sure that woman's Avalon, aren't we?","I have a debt to pay.","I can change the future in a moment.","I'm minding my own business."
+STR,13,14,10,20,11,11,12,14,12,16,20,11,18,9
+SIZ,12,14,11,19,12,8,12,12,10,14,20,10,17,8
+END,14,12,12,17,12,12,17,15,14,14,20,10,13,10
+INI,15,11,13,10,15,13,15,16,19,14,10,14,11,8
+DEX,15,12,11,10,15,20,18,14,17,16,10,18,9,9
+PER,16,16,12,12,12,15,12,12,16,14,14,14,9,15
+WIL,16,16,17,12,11,8,14,14,14,14,14,18,9,13
+CHA,14,19,11,10,12,12,11,14,11,14,8,16,9,12
+REA,20,18,16,8,16,16,14,13,15,14,12,12,11,10
+EMP,8,14,18,15,12,12,12,12,11,4,4,12,10,10
+Administration,15,50,15,15,15,15,15,30,15,15,15,15,15,15
+Astronomy,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Anthropology,0,0,0,0,0,0,0,0,0,0,0,0,0,10
+Bargain,25,15,5,25,55,60,5,40,55,5,5,15,5,20
+Biology,5,5,5,5,5,5,5,5,5,5,5,15,5,10
+Chemistry,5,5,5,5,5,5,5,5,5,5,5,10,5,10
+Comms Systems,20,20,40,50,30,20,20,20,20,20,50,10,5,25
+Computer Science,80,15,15,15,15,15,15,15,40,40,25,15,40,15
+Demolitions,15,15,15,15,15,50,50,15,15,55,15,10,0,0
+Detector Ops,30,30,50,40,60,30,30,60,30,20,40,5,0,0
+Disguise,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+Economics,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+Electronics,50,30,15,15,15,40,30,15,15,40,25,10,40,10
+EVA,15,15,15,15,50,15,15,30,15,20,15,0,25,10
+Farming,10,10,10,60,10,10,10,10,25,10,80,20,10,10
+Fast Draw,20,0,0,0,0,0,60,0,80,20,0,0,0,20
+Fast Talk,25,30,10,20,30,70,10,40,20,10,30,20,30,40
+Firearms,50,45,50,0,40,30,60,50,80,50,10,40,10,10W
+First Aid,15,20,45,60,20,15,15,15,45,15,20,30,15,25
+Forcewall Systems,50,15,15,15,35,15,15,50,15,10,10,0,25,0
+Forgery,0,0,0,0,0,0,0,0,0,0,0,10,0,0
+Gambling,40,5,5,5,5,50,5,5,5,5,5,5,5,5
+Geology,0,0,0,0,0,0,0,0,0,5,0,5,0,0
+Gunnery,20,20,20,0,40,40,30,60,20,20,0,0,0,0
+Healing,0,0,0,0,0,0,0,0,0,0,0,0,0,20
+Heavy Weapons,0,0,25,0,0,0,40,20,0,20,0,0,0,0
+Hide,60,40,55,30,30,70,50,30,70,15,20,45,15,15
+History,15,40,15,15,15,15,15,15,15,15,15,15,15,15
+Interrogation,10,10,10,10,10,10,10,10,10,10,20,10,10,75
+Law,10,25,10,10,10,10,10,10,10,10,10,10,10,15
+Leader,30,65,0,0,0,0,0,25,0,40,30,20,0,0
+Linguistics,5,5,5,5,5,5,5,5,5,30,10,15,5,15
+Mathematics,60,15,15,15,15,15,15,15,15,15,20,15,15,15
+Mechanical,20,45,20,60,40,20,20,30,20,20,40,20,20,20
+Medical,5,5,40,5,5,5,5,5,5,5,5,10,5,5
+Melee Weapons,20,20,60,80,20,20,60,20,50,20,60,30,20,45
+Mining,0,0,0,0,0,0,0,0,0,5,0,0,0,0
+Missle Weapons,10,10,10,10,10,10,60,10,10,10,20,10,10,20
+Navigation,20,20,20,20,70,20,20,60,20,0,20,0,0,0
+Physics,20,20,5,5,5,5,5,5,5,15,15,5,5,5
+Pick Pocket,5,5,5,5,5,70,5,5,5,5,5,15,5,10
+Pilot,20,20,20,20,80,20,20,70,20,10,40,0,60,0,0
+Political Science,10,60,10,10,10,10,10,10,10,40,10,35,10,10
+Probe,0,0,0,0,0,0,0,0,0,0,0,0,0,20
+Psychology,5,40,5,5,5,5,5,5,5,20,5,15,5,15
+Research,70,40,20,20,20,20,20,20,20,20,20,20,20,20
+Recon,55,55,65,40,15,35,65,15,55,50,30,35,45,15
+Security Systems,25,5,5,5,5,70,5,5,5,20,5,10,5,5
+Ships' Tactics,20,20,0,0,40,0,0,60,0,10,10,0,15,0
+Stardrive Ops,15,40,15,15,50,15,15,40,15,0,35,0,0,0
+Stealth,40,30,40,30,40,60,60,35,60,30,20,15,30,10
+Streetwise,40,10,10,10,60,70,10,35,50,20,10,10,30,50
+Surgery,0,0,30,0,0,0,0,0,0,0,0,0,0,5
+Survival,20,20,60,40,30,10,55,20,80,50,40,20,35,40
+Swim,25,25,25,25,25,25,25,25,25,20,25,25,25,45
+Tactics,20,75,40,0,20,0,0,20,0,30,10,20,25,00
+Teleport Systems,40,40,25,25,25,20,20,20,20,10,35,0,0,0
+Thrown Weapons,20,20,50,20,20,20,60,20,20,20,20,35,20,20
+Unarmed Combat,60,40,65,85,50,55,65,50,60,20,60,30,100,70
+Vehicle (Air),0,0,0,0,0,0,0,0,0,0,0,10,0,0
+Vehicle (Ground),15,15,15,15,15,15,15,15,15,15,15,15,15,15
+Vehicle (Water),0,0,0,0,0,0,0,0,0,15,0,10,0,0
+Weapons Systems,10,10,10,10,10,10,10,10,40,10,30,0,0,0
+Telepathy,0,0,85,0,0,0,0,0,0,0,20,0,0,10

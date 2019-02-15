@@ -224,6 +224,7 @@ st.character = {
 			var skills1 = {};
 			skills1["geology"] = baseMap(csvSpec["geology"].value);
 			skills1["gunnery"] = baseMap(csvSpec["gunnery"].value);
+			skills1["healing"] = baseMap(csvSpec["healing"].value);
 			skills1["heavy weapons"] = baseMap(csvSpec["heavy weapons"].value);
 			skills1["hide"] = baseMap(csvSpec["hide"].value);
 			skills1["history"] = baseMap(csvSpec["history"].value);
@@ -245,6 +246,7 @@ st.character = {
 			spec.skills["1"] = skills1;
 			
 			var skills2 = {};			
+			skills2["probe"] = baseMap(csvSpec["probe"].value);
 			skills2["psychology"] = baseMap(csvSpec["psychology"].value);
 			skills2["research"] = baseMap(csvSpec["research"].value);
 			skills2["recon"] = baseMap(csvSpec["recon"].value);
