@@ -8,7 +8,7 @@ st.character = {
 		st.character.$pageft = $(".st-page .st-page-ft");
 	},
 	loadChar: function(uri) {
-		st.log("loading char");
+		st.log("loading char uri[" + uri + "]");
 		
 		if (uri.indexOf(".json") > -1) {
 			st.character.loadCharJson(uri);

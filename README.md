@@ -12,3 +12,6 @@ by Kin Ming Looi and Zoe Taylor.
 
 * For Vest, recommend using this photo: 
 https://www.deviantart.com/taniadragon/art/Presenting-Mr-DAVID-BOWIE-8672926
+
+* For Elise, used this photo:
+https://www.deviantart.com/comicreadinggamer/art/Rebels-of-Youth-Elise-728393143
