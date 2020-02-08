@@ -377,6 +377,16 @@
 	width: 30px;
 }
 
+.st-skill-item-stat {
+	position: absolute;
+	display: inline-block;
+	font-size: 12px;
+	left: 116px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	text-align: left;
+}
+
 .no-border .st-skill-item-key, .st-skill-item-key {
 	border-bottom: 1px solid #ccc;
 	position: absolute;
@@ -394,7 +404,7 @@
 	position: absolute;
 	display: inline-block;
 	font-size: 12px;
-	left: 156px;
+	left: 186px;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-align: center;

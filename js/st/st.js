@@ -9,7 +9,9 @@ var st = {
 
 	init: function() {
 		st.character.init();
+		st.dynamic.init();
 		st.nav.init();
+		st.render.init();
 	}
 };
 
