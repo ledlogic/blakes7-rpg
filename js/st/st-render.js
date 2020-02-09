@@ -109,6 +109,10 @@ st.render = {
 		});
 		st.render.$pageft.append($attr);
 		
+		
+		var $hpbox = $("<div class=\"st-section st-hp-box\"></div>");
+		st.render.$pageft.append($hpbox);
+		
 	    $(".st-attribute-label").lettering();
 	},
 	renderDemographics: function() {

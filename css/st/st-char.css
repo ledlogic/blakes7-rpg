@@ -405,6 +405,16 @@
 	color: blue;
 }
 
+.st-hp-box {
+	position: absolute;
+	border: 1px solid #000 !important;
+	display: inline-block;
+	height: 100px;
+	width: 288px;
+	top: 360px;
+	left: 608px;
+}
+
 .no-border .st-skill-item-key, .st-skill-item-key {
 	border-bottom: 1px solid #ccc;
 	position: absolute;
@@ -434,5 +444,5 @@
 	position: absolute;
 	top: 930px;
 	height: 340px;
-	width: 866px;
+	width: 896px;
 }
