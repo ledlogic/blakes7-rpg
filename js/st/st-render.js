@@ -42,6 +42,22 @@ st.render = {
 				      + "</div>");
 		st.render.$pageft.append($attr);
 	},
+	renderAttrClass: function(key, val) {
+		if (key == "hp") {
+			return "";
+		}
+		switch (true) {
+			case val < 5:
+				return "st-low-attr";
+				break;
+			case val < 15:
+				return "st-mid-attr";
+				break;
+			default:
+				return "st-high-attr";
+				break;
+		}
+	},
 	renderAttributes: function() {
 		st.log("rendering attributes");
 
@@ -51,9 +67,16 @@ st.render = {
 		// attr
 		var $attr = $("<div class=\"st-section st-attributes\"></div>");
 		_.each(attr, function(value, key) {
+			if (key == "hp") {
+				return;
+			}
+			
 			var desc = st.stat.descriptions[key];
+			
+			var valueRangeClass = st.render.renderAttrClass(key, value);
+			
 			var h = "<span class=\"st-attribute-label\">" + key + "</span> "
-			      + "<span class=\"st-attribute-value\">" + value + "</span>"
+			      + "<span class=\"st-attribute-value " + valueRangeClass + "\">" + value + "</span>"
 			      + "<span class=\"st-attribute-description\">" + desc + "</span>";
 			var $elm = $("<span class=\"st-item st-attribute st-attribute-" + key + "\">" + h + "</span>");
 			$attr.append($elm);
@@ -69,7 +92,8 @@ st.render = {
 			"hth": st.character.calcHth(),
 			"rng": st.character.calcRng(),
 			"cap": st.character.calcLoad(),
-			"psi": st.character.calcPsi()
+			"psi": st.character.calcPsi(),
+			"hp": st.character.spec.attributes["hp"]
 		};
 
 		var spec = st.character.spec;
@@ -145,10 +169,9 @@ st.render = {
 		// there are three sets of skills, to match the display
 		for (var i=0;i<3;i++) {
 			var skillsI = skills[i];
-
-			var y = 0;
-			
-			var $skillsI = $("<div class=\"st-section st-skills st-skills-" + i + "\"></div>");
+			var y = 20;
+			var title = (i===0) ? "Skills" : "";
+			var $skillsI = $("<div class=\"st-section st-skills st-skills-" + i + "\"><span class=\"st-skills-title st-item\">" + title + "</span></div>");
 			_.each(skillsI, function(value, key) {
 				var h = value + "";
 				if (!h) {

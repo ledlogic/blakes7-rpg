@@ -345,8 +345,14 @@
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	top: 500px;
+	top: 480px;
 	width: 100px;
+}
+
+.st-skills-title {
+	font-family: 'Microgramma Extd D Medium', 'Microgramma Extd D', sans-serif;
+	font-weight: bolder;	
+	text-transform: uppercase;
 }
 
 .st-skills-0 {
@@ -385,6 +391,18 @@
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-align: left;
+}
+
+.st-low-attr {
+	color: red;	
+}
+
+.st-mid-attr {
+	color: green;
+}
+
+.st-high-attr {
+	color: blue;
 }
 
 .no-border .st-skill-item-key, .st-skill-item-key {
