@@ -131,7 +131,7 @@ st.dynamic = {
 			
 			var physicalGrade = st.dynamic.calcGrade(physicalDie);
 			spec.grade.physical = physicalGrade;
-			spec.attributes["str"] = 18;
+			spec.attributes["str"] = physicalGrade["attr"];
 			spec.attributes["siz"] = physicalGrade["attr"];
 			spec.attributes["end"] = physicalGrade["attr"];
 			spec.attributes["ini"] = physicalGrade["attr"];
