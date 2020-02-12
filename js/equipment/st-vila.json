@@ -1,0 +1,24 @@
+{
+    "equipment": [
+    	{
+    		"name": "Assymetric Shirt"
+    	},
+        {
+            "name": "Toolbox"
+        },
+        {
+            "name": "Laser Probe",
+            "range": "1m (3ft)",
+            "damage": "1d6",
+            "weight": "0.5kg"
+        },
+        {
+            "name": "Liberator Handgun",
+            "range": "15m (49ft)",
+            "damage": "2d10",
+            "rof": "2",
+            "shots": "50",
+            "weight": "1kg"
+        }
+    ]
+}
