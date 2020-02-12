@@ -274,6 +274,12 @@
 	margin-top: 10px;
 }
 
+.st-attribute.st-attribute-rng {
+	margin-left: 175px;
+    margin-top: -20px;
+    width: 300px;
+}
+
 /* combat */
 
 .st-combat {

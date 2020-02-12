@@ -90,6 +90,7 @@ st.render = {
 		
 		st.character.spec.combat = {
 			"hth": st.character.calcHth(),
+			"pbr": st.character.calcPointBlankRng(),
 			"rng": st.character.calcRng(),
 			"cap": st.character.calcLoad(),
 			"psi": st.character.calcPsi(),

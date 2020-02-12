@@ -139,6 +139,15 @@ st.character = {
 		var ret = rngm + " m (" + rngft + " ft)";
 		return ret;
 	},
+	calcPointBlankRng: function() {
+		var spec = st.character.spec;
+		
+		var dex = parseInt(spec.attributes["dex"], 10);
+		var rngm = Math.round(dex / 3.0 * 10.0) / 10.0; // meters
+		var rngft = Math.round(3.28084 * rngm * 10.0) / 10.0; // ft
+		var ret = Math.round(rngm) + " m (" + Math.round(rngft) + " ft)";
+		return ret;
+	},
 	charAverageStat: function() {
 		var total = 0;
 		for (var i=0;i<arguments.length;i++) {
