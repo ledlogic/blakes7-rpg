@@ -9,34 +9,29 @@ st.character = {
 	loadChar: function(uri) {
 		st.log("loading char uri[" + uri + "]");
 		
+		if (uri.indexOf("dynamic") > -1) {
+			st.dynamic.loadChar(uri);
+		}
 		if (uri.indexOf(".json") > -1) {
 			st.character.loadCharJson(uri);
 		}
 		if (uri.indexOf(".csv") > -1) {
 			st.character.loadCharCsv(uri);
 		}
-		if (uri.indexOf("dynamic") > -1) {
-			var char = uri.split(":")[1];
-			st.dynamic.char = char;
-
-			var uri = "st-blakes-7.csv:Default";
-			st.character.loadDefaultCsv(uri);
-			//st.dynamic.loadChar(uri);
-		}
 	},
 	loadCharJson: function(uri) {
 		st.log("loading char from json");
 		
 		$.ajax("js/char/" + uri)
-		.done(function(data, status, jqxhr) {
-			st.character.spec = data.spec;
-			setTimeout(st.character.render, 10);
-		})
-		.fail(function() {
-			alert("Error: unable to load character.");
-		})
-		.always(function() {
-		});
+			.done(function(data, status, jqxhr) {
+				st.character.spec = data.spec;
+				setTimeout(st.character.render, 10);
+			})
+			.fail(function() {
+				alert("Error: unable to load character.");
+			})
+			.always(function() {
+			});
 	},
 	loadCharCsv: function(uri) {
 		st.log("loading char from csv, uri[" + uri + "]");
@@ -359,7 +354,7 @@ st.character = {
 		skills2["research"] = csvSpec["research"].value;
 		skills2["recon"] = csvSpec["recon"].value;
 		skills2["security systems"] = csvSpec["security systems"].value;
-		skills2["ships' tactics"] = csvSpec["ships' tactics"].value;
+		skills2["ship tactics"] = csvSpec["ship tactics"].value;
 		skills2["stardrive ops"] = csvSpec["stardrive ops"].value;
 		skills2["stealth"] = csvSpec["stealth"].value;
 		skills2["streetwise"] = csvSpec["streetwise"].value;
@@ -376,6 +371,17 @@ st.character = {
 		skills2["weapons systems"] = csvSpec["weapons systems"].value;
 		skills2["telepathy"] = csvSpec["telepathy"].value;
 		spec.skills["2"] = skills2;
+	},
+	
+	setSkill: function(skill, value) {
+		try {
+			st.log("setting skill[" + skill + "], value[" + value + "]");
+			var csvSpec = st.character.csvSpec;
+			csvSpec[skill].value = value;
+			st.log("updated skill[" + skill + "], csvSpec[skill].value[" + csvSpec[skill].value + "]");
+		} catch (e) {
+			st.log("Cannot set skill[" + skill + "], value[" + value + "]")
+		}
 	},
 	
 	updateSkill: function(skill, value) {

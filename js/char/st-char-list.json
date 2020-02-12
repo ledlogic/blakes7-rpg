@@ -84,6 +84,11 @@
 			"allegiance": "Federation",
 			"name": "Federation Citizens (Outer Worlds)",
 			"uri": "dynamic:fcow"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Federation Fleet",
+			"uri": "dynamic:ff"
 		}		
 	]	
 }

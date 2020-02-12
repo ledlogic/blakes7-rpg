@@ -5,8 +5,15 @@ st.dynamic = {
 	init: function() {
 		st.log("init dynamic");
 	},
-	calcGrade: function() {
-		var d = st.math.dieN(100);
+	loadChar: function(uri) {
+		var char = uri.split(":")[1];
+		st.dynamic.char = char;
+
+		var uri = "st-blakes-7.csv:Default";
+		st.character.loadDefaultCsv(uri);
+	},
+	calcGrade: function(d) {
+		d = d ? d : st.math.dieN(100);
 		switch (true) {
 			case (d<46):
 				return { "grade": "Delta", "symbol": "𝛿", "attr": 7 };
@@ -24,6 +31,8 @@ st.dynamic = {
 	},
 	charResponse: function(d, name) {
 		st.log("dynamic char response");
+		
+		var char = st.dynamic.char;
 		
 		//st.log(d);
 		//st.log(d.data);
@@ -95,9 +104,17 @@ st.dynamic = {
 			
 			spec.attributes = {};
 			
-			// physical
 			spec.grade = {};
-			var physicalGrade = st.dynamic.calcGrade();
+			
+			// physical
+			var physicalDie = null;
+			// fleet is physical gamma
+			if (char == "ff") {
+				physicalDie = 65;
+				spec.overview["ship"] = "Federation Fleet"; 
+				spec.overview["position"] = "Crewman";
+			}
+			var physicalGrade = st.dynamic.calcGrade(physicalDie);
 			spec.grade.physical = physicalGrade;
 			spec.attributes["str"] = physicalGrade["attr"];
 			spec.attributes["siz"] = physicalGrade["attr"];
@@ -106,7 +123,15 @@ st.dynamic = {
 			spec.attributes["dex"] = physicalGrade["attr"];
 			
 			// mental
-			var mentalGrade = st.dynamic.calcGrade();
+			var mentalDie = null;
+			// fleet is mental beta or alpha
+			if (char == "ff") {
+				mentalDie = 85 + (Math.random() > 0.5 ? 10 : 0);
+				if (mentalDie > 85) {
+					spec.overview["position"] = "Officer";	
+				}
+			}
+			var mentalGrade = st.dynamic.calcGrade(mentalDie);
 			spec.grade.mental = mentalGrade;
 			spec.attributes["per"] = mentalGrade["attr"];
 			spec.attributes["wil"] = mentalGrade["attr"];
@@ -170,9 +195,11 @@ st.dynamic = {
 		var char = st.dynamic.char;
 		var csvSpec = st.character.csvSpec;
 		var spec = st.character.spec;
-		st.log("loadSpec, char[" + char + "]");
+		st.log("dynamic loadSpec, char[" + char + "]");
 		switch (char) {
 			case 'fciw':
+				spec.overview["ship"] = "Inner World";
+				spec.overview["position"] = "Federation Citizen";
 				var skills = st.dynamic.findNSkillsOfAttr("REA", 4);
 				_.each(skills, function(skill, index) {
 					var value = (index === 0 ? 35 : 15);
@@ -181,6 +208,8 @@ st.dynamic = {
 				});
 				break;
 			case 'fcow':
+				spec.overview["ship"] = "Outer World";
+				spec.overview["position"] = "Federation Citizen";
 				var value = 20;
 				value += st.dynamic.calcMaximumSkillBonus();
 				st.character.updateSkill("survival", value);
@@ -200,6 +229,21 @@ st.dynamic = {
 					value += st.dynamic.calcMaximumSkillBonus();
 					st.character.updateSkill(skill, value);
 				});
+				break;
+			case 'ff':
+				st.character.setSkill("detector ops", 25);
+				st.character.setSkill("firearms", 25);
+				st.character.setSkill("forcewall systems", 25);
+				st.character.setSkill("stardrive ops", 25);
+				
+				if (spec.overview["position"] == "Officer") {
+					st.character.setSkill("administration", 20);
+					st.character.setSkill("gunnery", 40);
+					st.character.setSkill("leader", 20);
+					st.character.setSkill("navigation", 40);
+					st.character.setSkill("pilot", 40);
+					st.character.setSkill("ship tactics", 25);
+				}
 				break;
 		}
 		st.character.splitSkills();
