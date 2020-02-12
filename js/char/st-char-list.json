@@ -51,16 +51,6 @@
 			"uri": "st-blakes-7.csv:Soolin"
 		},
 		{
-			"allegiance": "Rebellion",
-			"name": "Veron",
-			"uri": "st-blakes-7.csv:Veron"
-		},
-		{
-			"allegiance": "Rebellion",
-			"name": "Shya",
-			"uri": "st-blakes-7.csv:Shya"
-		},
-		{
 			"allegiance": "Blakes-7",
 			"name": "Vest",
 			"uri": "st-blakes-7.csv:Vest"
@@ -124,6 +114,16 @@
 			"allegiance": "Federation",
 			"name": "Ruriktron",
 			"uri": "ruriktron.html"
+		},
+		{
+			"allegiance": "Rebellion",
+			"name": "Veron",
+			"uri": "st-blakes-7.csv:Veron"
+		},
+		{
+			"allegiance": "Rebellion",
+			"name": "Shya",
+			"uri": "st-blakes-7.csv:Shya"
 		},
 		{
 			"allegiance": "Space Assault Force",

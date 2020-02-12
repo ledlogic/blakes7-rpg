@@ -1,0 +1,41 @@
+{
+    "equipment": [
+        {
+            "name": "Bow",
+            "range": "10m (33ft)",
+            "damage": "1d6+2",
+            "rof": "1 (2 phases to reload)",
+            "weight": "1kg"
+        },
+        {
+            "name": "Knife",
+            "damage": "1d10+2",
+            "weight": "0.3kg"
+        },
+        {
+            "name": "Clip Gun - Laser",
+            "range": "15m (49ft)",
+            "damage": "2d6",
+            "rof": "1",
+            "shots": "30",
+            "weight": "1.5kg"
+        },
+        {
+            "name": "Clip Gun - Plasma Bullet",
+            "range": "10m (33ft)",
+            "damage": "2d10",
+            "rof": "1",
+            "shots": "30",
+            "weight": "1.5kg"
+        },
+        {
+            "name": "Clip Gun - Stun",
+            "range": "10m (33ft)",
+            "damage": "1d3",
+            "rof": "1",
+            "shots": "30",
+            "weight": "1.5kg",
+            "notes": "Target succeed at RTN END"
+        }
+    ]
+}
