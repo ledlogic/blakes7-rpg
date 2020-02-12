@@ -15,3 +15,6 @@ https://www.deviantart.com/taniadragon/art/Presenting-Mr-DAVID-BOWIE-8672926
 
 * For Elise, used this photo:
 https://www.deviantart.com/comicreadinggamer/art/Rebels-of-Youth-Elise-728393143
+
+* For Ruriktron, this photo:
+https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/KC85-1_Arbeitsplatz_1.jpg/1024px-KC85-1_Arbeitsplatz_1.jpg
