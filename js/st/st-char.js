@@ -12,6 +12,9 @@ st.character = {
 		if (uri.indexOf("dynamic") > -1) {
 			st.dynamic.loadChar(uri);
 		}
+		if (uri.indexOf(".html") > -1) {
+			window.location = uri;
+		}
 		if (uri.indexOf(".json") > -1) {
 			st.character.loadCharJson(uri);
 		}

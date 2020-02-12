@@ -114,16 +114,19 @@ st.dynamic = {
 				physicalDie = 65;
 			}			
 			if (char == "ft") {
-				mentalDie = 85;
+				physicalDie = 85;
 			}
 			if (char == "fo") {
-				mentalDie = 85;
+				physicalDie = 85;
 			}
 			if (char == "saft") {
-				mentalDie = 100;
+				physicalDie = 100;
 			}
 			if (char == "safo") {
-				mentalDie = 100;
+				physicalDie = 100;
+			}
+			if (char == "out") {
+				physicalDie = 85;
 			}
 			
 			var physicalGrade = st.dynamic.calcGrade(physicalDie);
@@ -164,6 +167,9 @@ st.dynamic = {
 				spec.overview["ship"] = "Space Assault force"; 
 				spec.overview["position"] = "Officer";
 				mentalDie = 100;
+			}
+			if (char == "out") {
+				physicalDie = 85;
 			}
 			
 			var mentalGrade = st.dynamic.calcGrade(mentalDie);
@@ -217,6 +223,26 @@ st.dynamic = {
 				value += 5;
 				break;
 			case "Beta":
+				value += 10;
+				break;
+			case "Alpha":
+				value += 20;
+				break;
+		}
+		return value;
+	},
+	
+	/* odd that this goes a different way... let's take it as fact. */
+	calcOutsiderSkillBonus: function() {
+		var spec = st.character.spec;
+		var value = 0;
+		switch (spec.grade.mental.grade) {
+			case "Beta":
+				break;
+			case "Gamma":
+				value += 5;
+				break;
+			case "Delta":
 				value += 10;
 				break;
 			case "Alpha":
@@ -303,6 +329,18 @@ st.dynamic = {
 				st.character.setSkill("thrown weapons", 30);
 				st.character.setSkill("unarmed combat", 55);			
 				break;
+			case 'out':
+				spec.overview["ship"] = "Federation";
+				spec.overview["position"] = "Outsider";
+				st.character.setSkill("survival", 15);
+				var skills = st.dynamic.findNSkillsOfAttr("REA", 4);
+				var gradeBonus = st.dynamic.calcOutsiderSkillBonus();
+				_.each(skills, function(skill, index) {
+					var value = (index === 0 ? 35 : 15);
+					value += st.dynamic.calcMentalSkillBonus();
+					st.character.updateSkill(skill, value);
+				});
+				break;		
 		}
 		st.character.splitSkills();
 		setTimeout(st.render.render, 10);

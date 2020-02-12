@@ -22,6 +22,11 @@
 		},
 		{
 			"allegiance": "Blakes-7",
+			"name": "Orac",
+			"uri": "orac.html"
+		},
+		{
+			"allegiance": "Blakes-7",
 			"name": "Jenna Stannis",
 			"uri": "st-blakes-7.csv:Jenna"
 		},
@@ -66,6 +71,11 @@
 			"uri": "st-blakes-7.csv:Elise"
 		},
 		{
+			"allegiance": "Blakes-7",
+			"name": "Zen",
+			"uri": "zen.html"
+		},
+		{
 			"allegiance": "Federation",
 			"name": "Avalon (Android)",
 			"uri": "st-blakes-7.csv:Avalon"
@@ -102,8 +112,18 @@
 		},
 		{
 			"allegiance": "Federation",
+			"name": "Outsider",
+			"uri": "dynamic:out"
+		},
+		{
+			"allegiance": "Federation",
 			"name": "Project Gan",
 			"uri": "st-blakes-7.csv:ProjectGan"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Ruriktron",
+			"uri": "ruriktron.html"
 		},
 		{
 			"allegiance": "Space Assault Force",

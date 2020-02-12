@@ -9,7 +9,7 @@ st.stat = {
 		"dex": "Accuracy of reflexes: co-ordination and nimbleness.",
 
 		"per": "Eye for detail: how observant and alert.",
-		"wil": "Determination and ability to resit pressure and coercion.",
+		"wil": "Determination and ability to resist pressure and coercion.",
 		"rea": "Ability to think in a logical and deliberate manner.  Can be correlated to education.",
 		"cha": "Force of personality and ability to inspire others.",
 		"emp": "Emotional stability and how well they cope with stress.",
