@@ -122,6 +122,50 @@ st.dynamic = {
 		}		
 	},
 	
+	calcMaximumSkillBonus: function() {
+		var r1 = st.dynamic.calcPhysicalSkillBonus();
+		var r2 = st.dynamic.calcMentalSkillBonus();
+		return Math.max(r1, r2);
+	},
+	
+	calcPhysicalSkillBonus: function() {
+		var spec = st.character.spec;
+		var value = 0;
+		switch (spec.grade.physical.grade) {
+			case "Delta":
+				break;
+			case "Gamma":
+				value += 5;
+				break;
+			case "Beta":
+				value += 10;
+				break;
+			case "Alpha":
+				value += 20;
+				break;
+		}
+		return value;
+	},
+	
+	calcMentalSkillBonus: function() {
+		var spec = st.character.spec;
+		var value = 0;
+		switch (spec.grade.mental.grade) {
+			case "Delta":
+				break;
+			case "Gamma":
+				value += 5;
+				break;
+			case "Beta":
+				value += 10;
+				break;
+			case "Alpha":
+				value += 20;
+				break;
+		}
+		return value;
+	},
+	
 	loadSpec: function() {
 		var char = st.dynamic.char;
 		var csvSpec = st.character.csvSpec;
@@ -131,36 +175,50 @@ st.dynamic = {
 			case 'fciw':
 				var skills = st.dynamic.findNSkillsOfAttr("REA", 4);
 				_.each(skills, function(skill, index) {
-					st.log("132 csvSpec[skill].value",csvSpec[skill].value);
-					csvSpec[skill].value = parseInt(csvSpec[skill].value,10) + (index === 0 ? 35 : 15);
-					st.log("134 spec.grade.mental.grade",spec.grade.mental.grade);
-					st.log("135 csvSpec[skill].value",csvSpec[skill].value);
-					switch (spec.grade.mental.grade) {
-						case "Delta":
-							break;
-						case "Gamma":
-							csvSpec[skill].value += 5;
-							break;
-						case "Beta":
-							csvSpec[skill].value += 10;
-							break;
-						case "Alpha":
-							csvSpec[skill].value += 20;
-							break;
-					}
-					st.log("149 csvSpec[skill].value",csvSpec[skill].value);
+					var value = (index === 0 ? 35 : 15);
+					value += st.dynamic.calcMentalSkillBonus();
+					st.character.updateSkill(skill, value);
+				});
+				break;
+			case 'fcow':
+				var value = 20;
+				value += st.dynamic.calcMaximumSkillBonus();
+				st.character.updateSkill("survival", value);
+				var skills = [
+					"administration",
+					"electronics",
+					"farming",
+					"first aid",
+					"mechanical",
+					"medical",
+					"mining"				
+				];
+				var skills = st.dynamic.findNSkills(skills, 2);
+				_.each(skills, function(skill, index) {
+					var value = (index === 0 ? 30 : 15);
+					// TODO: find grade for skill
+					value += st.dynamic.calcMaximumSkillBonus();
+					st.character.updateSkill(skill, value);
 				});
 				break;
 		}
 		st.character.splitSkills();
 		setTimeout(st.render.render, 10);
 	},
+	findNSkills: function(skills, qty) {
+		var ret = [];
+		while (ret.length < qty) {
+			var skill = skills[st.math.dieArray(skills)];
+			if (ret.indexOf(skill) === -1) {
+				ret.push(skill);	
+			}			
+		}
+		return ret;
+	},
 	findSkillsOfAttr: function(attr, qty) {
 		var ret = [];
 		for (var i in st.character.relStat) {
 			var relStat = st.character.relStat[i].value;
-			st.log("i[" + i + "]");
-			st.log("relStat[" + relStat + "]");
 			if (relStat.indexOf(attr) > -1) {
 				ret.push(i);
 			}
@@ -168,16 +226,8 @@ st.dynamic = {
 		return ret;
 	},
 	findNSkillsOfAttr: function(attr, qty) {
-		var ret = [];
 		var skills = st.dynamic.findSkillsOfAttr(attr);
-		st.log("skills[" + skills + "]");
-		while (ret.length < qty) {
-			var skill = skills[st.math.dieArray(skills)];
-			st.log("skill[" + skill + "]");
-			if (ret.indexOf(skill) === -1) {
-				ret.push(skill);	
-			}			
-		}
+		var ret = st.dynamic.findNSkills(skills, qty);
 		return ret;
 	}
 };

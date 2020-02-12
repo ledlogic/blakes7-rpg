@@ -376,5 +376,17 @@ st.character = {
 		skills2["weapons systems"] = csvSpec["weapons systems"].value;
 		skills2["telepathy"] = csvSpec["telepathy"].value;
 		spec.skills["2"] = skills2;
+	},
+	
+	updateSkill: function(skill, value) {
+		try {
+			st.log("updating skill[" + skill + "], value[" + value + "]");
+			var csvSpec = st.character.csvSpec;
+			var skillValue = csvSpec[skill].value;
+			csvSpec[skill].value = parseInt(skillValue, 10) + value;
+			st.log("updated skill[" + skill + "], csvSpec[skill].value[" + csvSpec[skill].value + "]");
+		} catch (e) {
+			st.log("Cannot update skill[" + skill + "], skillValue[" + skillValue + "], value[" + value + "]")
+		}
 	}
 };

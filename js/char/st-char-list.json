@@ -79,6 +79,11 @@
 			"allegiance": "Federation",
 			"name": "Federation Citizens (Inner Worlds)",
 			"uri": "dynamic:fciw"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Federation Citizens (Outer Worlds)",
+			"uri": "dynamic:fcow"
 		}		
 	]	
 }
