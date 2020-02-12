@@ -1,0 +1,15 @@
+{
+    "equipment": [
+    	{
+    		"name": "Leather Outfit"
+    	},
+        {
+            "name": "Liberator Handgun",
+            "range": "15m (49ft)",
+            "damage": "2d10",
+            "rof": "2",
+            "shots": "50",
+            "weight": "1kg"
+        }
+    ]
+}
