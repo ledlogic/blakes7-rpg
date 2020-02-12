@@ -148,7 +148,7 @@ st.render = {
 				var ds = [];
 				_.each(equipment[i], function(value, key) {
 					if (key == "name") {
-						ds.push("<dt>" + value + "</dt>");
+						ds.push("<dt class=\"st-equipment-name\">" + value + "</dt>");
 					} else {
 						ds.push("<dt>" + key + ":</dt>");
 						ds.push("<dd>" + value + "</dd>");

@@ -398,7 +398,7 @@
 	display: inline-block;
 	font-size: 10px;
 	left: 116px;
-	margin: 0 0 0 0;
+	margin: 2px 0 0 0;
 	padding: 0 0 0 0;
 	text-align: left;
 }
@@ -460,6 +460,11 @@
 .st-equipment-item {
 	clear: both;
 	font-size: 12px;
+	margin: 20px 0;
+}
+
+.st-equipment-item dt.st-equipment-name {
+	font-weight: bold;
 }
 
 .st-equipment-item dt, .st-equipment-item dd {
