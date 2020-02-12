@@ -1,9 +1,13 @@
 /* st.js */
 
 var st = {
-	log: function(s) {
+	log: function(s1, s2) {
 		if (typeof(window.console) != "undefined") {
-			console.log(s);
+			if (s2) {
+				console.log([s1, s2]);
+			} else {
+				console.log(s1);
+			}
 		}
 	},
 

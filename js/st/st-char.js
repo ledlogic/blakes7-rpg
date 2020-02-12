@@ -16,7 +16,12 @@ st.character = {
 			st.character.loadCharCsv(uri);
 		}
 		if (uri.indexOf("dynamic") > -1) {
-			st.dynamic.loadChar(uri);
+			var char = uri.split(":")[1];
+			st.dynamic.char = char;
+
+			var uri = "st-blakes-7.csv:Default";
+			st.character.loadDefaultCsv(uri);
+			//st.dynamic.loadChar(uri);
 		}
 	},
 	loadCharJson: function(uri) {
@@ -34,7 +39,7 @@ st.character = {
 		});
 	},
 	loadCharCsv: function(uri) {
-		st.log("loading char from csv");
+		st.log("loading char from csv, uri[" + uri + "]");
 		
 		var uriArr = uri.split(":");
 		var csv = uriArr[0];
@@ -46,6 +51,23 @@ st.character = {
 			header: true,
 			complete: function(d) {
 				st.character.charResponse(d,n);
+			},
+			encoding: "UTF-8"
+		});
+	},
+	loadDefaultCsv: function(uri) {
+		st.log("loading default char from csv, uri[" + uri + "]");
+		
+		var uriArr = uri.split(":");
+		var csv = uriArr[0];
+		var n = uriArr[1];
+		
+		Papa.parse("csv/char/" + csv, {
+			delimiter: ",",
+			download: true,
+			header: true,
+			complete: function(d) {
+				st.dynamic.charResponse(d,n);
 			},
 			encoding: "UTF-8"
 		});
@@ -182,6 +204,7 @@ st.character = {
 			//st.log(csvSpec);
 			
 			var spec = {};
+			st.character.csvSpec = csvSpec;
 			st.character.spec = spec;
 			
 			spec.allegiance = csvSpec["allegiance"].value;
@@ -200,96 +223,158 @@ st.character = {
 			spec.attributes = {};
 			
 			// physical
-			spec.attributes["str"] = csvSpec["str"].value;
-			spec.attributes["siz"] = csvSpec["siz"].value;
-			spec.attributes["end"] = csvSpec["end"].value;
-			spec.attributes["ini"] = csvSpec["ini"].value;
-			spec.attributes["dex"] = csvSpec["dex"].value;
+			spec.attributes["str"] = parseInt(csvSpec["str"].value, 10);
+			spec.attributes["siz"] = parseInt(csvSpec["siz"].value, 10);
+			spec.attributes["end"] = parseInt(csvSpec["end"].value, 10);
+			spec.attributes["ini"] = parseInt(csvSpec["ini"].value, 10);
+			spec.attributes["dex"] = parseInt(csvSpec["dex"].value, 10);
 			
 			// mental
-			spec.attributes["per"] = csvSpec["per"].value;
-			spec.attributes["wil"] = csvSpec["wil"].value;
-			spec.attributes["cha"] = csvSpec["cha"].value;
-			spec.attributes["rea"] = csvSpec["rea"].value;
-			spec.attributes["emp"] = csvSpec["emp"].value;
+			spec.attributes["per"] = parseInt(csvSpec["per"].value, 10);
+			spec.attributes["wil"] = parseInt(csvSpec["wil"].value, 10);
+			spec.attributes["cha"] = parseInt(csvSpec["cha"].value, 10);
+			spec.attributes["rea"] = parseInt(csvSpec["rea"].value, 10);
+			spec.attributes["emp"] = parseInt(csvSpec["emp"].value, 10);
+
+			spec.demographics["grades"] = st.character.computeGrades();
 			
 			spec.attributes["hp"] = st.character.calcHp();
 			
-			spec.skills = {};
-			
-			var skills0 = {};
-			skills0["administration"] = csvSpec["administration"].value;
-			skills0["astronomy"] = csvSpec["astronomy"].value;
-			skills0["anthropology"] = csvSpec["anthropology"].value;
-			skills0["bargain"] = csvSpec["bargain"].value;
-			skills0["chemistry"] = csvSpec["chemistry"].value;
-			skills0["comms systems"] = csvSpec["comms systems"].value;
-			skills0["computer science"] = csvSpec["computer science"].value;
-			skills0["demolitions"] = csvSpec["demolitions"].value;
-			skills0["detector ops"] = csvSpec["detector ops"].value;
-			skills0["disguise"] = csvSpec["disguise"].value;
-			skills0["economics"] = csvSpec["economics"].value;
-			skills0["electronics"] = csvSpec["electronics"].value;
-			skills0["eva"] = csvSpec["eva"].value;
-			skills0["farming"] = csvSpec["farming"].value;
-			skills0["fast draw"] = csvSpec["fast draw"].value;
-			skills0["fast talk"] = csvSpec["fast talk"].value;
-			skills0["firearms"] = csvSpec["firearms"].value;
-			skills0["first aid"] = csvSpec["first aid"].value;
-			skills0["forcewall systems"] = csvSpec["forcewall systems"].value;
-			skills0["forgery"] = csvSpec["forgery"].value;
-			skills0["gambling"] = csvSpec["gambling"].value;
-			spec.skills["0"] = skills0;
-			
-			var skills1 = {};
-			skills1["geology"] = csvSpec["geology"].value;
-			skills1["gunnery"] = csvSpec["gunnery"].value;
-			skills1["healing"] = csvSpec["healing"].value;
-			skills1["heavy weapons"] = csvSpec["heavy weapons"].value;
-			skills1["hide"] = csvSpec["hide"].value;
-			skills1["history"] = csvSpec["history"].value;
-			skills1["interrogation"] = csvSpec["interrogation"].value;
-			skills1["law"] = csvSpec["law"].value;
-			skills1["leader"] = csvSpec["leader"].value;
-			skills1["linguistics"] = csvSpec["linguistics"].value;
-			skills1["mathematics"] = csvSpec["mathematics"].value;
-			skills1["mechanical"] = csvSpec["mechanical"].value;
-			skills1["medical"] = csvSpec["medical"].value;
-			skills1["melee weapons"] = csvSpec["melee weapons"].value;
-			skills1["mining"] = csvSpec["mining"].value;
-			skills1["missle weapons"] = csvSpec["missle weapons"].value;
-			skills1["navigation"] = csvSpec["navigation"].value;
-			skills1["physics"] = csvSpec["physics"].value;
-			skills1["pick pocket"] = csvSpec["pick pocket"].value;
-			skills1["pilot"] = csvSpec["pilot"].value;
-			skills1["political science"] = csvSpec["political science"].value;
-			spec.skills["1"] = skills1;
-			
-			var skills2 = {};			
-			skills2["probe"] = csvSpec["probe"].value;
-			skills2["psychology"] = csvSpec["psychology"].value;
-			skills2["research"] = csvSpec["research"].value;
-			skills2["recon"] = csvSpec["recon"].value;
-			skills2["security systems"] = csvSpec["security systems"].value;
-			skills2["ships' tactics"] = csvSpec["ships' tactics"].value;
-			skills2["stardrive ops"] = csvSpec["stardrive ops"].value;
-			skills2["stealth"] = csvSpec["stealth"].value;
-			skills2["streetwise"] = csvSpec["streetwise"].value;
-			skills2["surgery"] = csvSpec["surgery"].value;
-			skills2["survival"] = csvSpec["survival"].value;
-			skills2["swim"] = csvSpec["swim"].value;
-			skills2["tactics"] = csvSpec["tactics"].value;
-			skills2["teleport systems"] = csvSpec["teleport systems"].value;
-			skills2["thrown weapons"] = csvSpec["thrown weapons"].value;
-			skills2["unarmed combat"] = csvSpec["unarmed combat"].value;
-			skills2["vehicle (air)"] = csvSpec["vehicle (air)"].value;
-			skills2["vehicle (ground)"] = csvSpec["vehicle (ground)"].value;
-			skills2["vehicle (water)"] = csvSpec["vehicle (water)"].value;
-			skills2["weapons systems"] = csvSpec["weapons systems"].value;
-			skills2["telepathy"] = csvSpec["telepathy"].value;
-			spec.skills["2"] = skills2;
+			st.character.splitSkills();
 			
 			setTimeout(st.render.render, 10);
 		}
+	},
+	
+	computeGrades: function() {
+		var spec = st.character.spec;
+		
+		var physicalGrade = st.character.computePhysicalGrade();
+		var mentalGrade = st.character.computeMentalGrade();
+		
+		var grades = physicalGrade + "-" + mentalGrade;
+		return grades;
+	},
+	
+	computePhysicalGrade: function() {
+		var spec = st.character.spec;
+		var attributes = spec.attributes;
+		var average = (spec.attributes["str"]
+			+ spec.attributes["siz"]
+			+ spec.attributes["end"]
+			+ spec.attributes["ini"]
+			+ spec.attributes["dex"]) / 5.0
+		var grade = st.character.computeGrade(average);
+		return grade;
+	},
+	
+	computeMentalGrade: function() {
+		var spec = st.character.spec;
+		var attributes = spec.attributes;
+		var average = (spec.attributes["per"]
+			+ spec.attributes["wil"]
+			+ spec.attributes["cha"]
+			+ spec.attributes["rea"]
+			+ spec.attributes["emp"]) / 5.0;
+		var grade = st.character.computeGrade(average);
+		return grade;
+	},
+	
+	computeGrade: function(average) {
+		var grade = "";
+		switch (true) {
+			case average < (7+10)/2.0:
+				grade = "Delta";
+				break;
+			case average < (10+12)/2.0:
+				grade = "Gamma";
+				break;
+			case average < (12+15)/2.0:
+				grade = "Beta";
+				break;
+			default:
+				grade = "Alpha";
+				break;
+		}
+		return grade;
+	},
+	
+	splitSkills: function() {
+		var csvSpec = st.character.csvSpec;
+		var spec = st.character.spec;
+		
+		spec.skills = {};
+		
+		var skills0 = {};
+		skills0["administration"] = csvSpec["administration"].value;
+		skills0["astronomy"] = csvSpec["astronomy"].value;
+		skills0["anthropology"] = csvSpec["anthropology"].value;
+		skills0["bargain"] = csvSpec["bargain"].value;
+		skills0["chemistry"] = csvSpec["chemistry"].value;
+		skills0["comms systems"] = csvSpec["comms systems"].value;
+		skills0["computer science"] = csvSpec["computer science"].value;
+		skills0["demolitions"] = csvSpec["demolitions"].value;
+		skills0["detector ops"] = csvSpec["detector ops"].value;
+		skills0["disguise"] = csvSpec["disguise"].value;
+		skills0["economics"] = csvSpec["economics"].value;
+		skills0["electronics"] = csvSpec["electronics"].value;
+		skills0["eva"] = csvSpec["eva"].value;
+		skills0["farming"] = csvSpec["farming"].value;
+		skills0["fast draw"] = csvSpec["fast draw"].value;
+		skills0["fast talk"] = csvSpec["fast talk"].value;
+		skills0["firearms"] = csvSpec["firearms"].value;
+		skills0["first aid"] = csvSpec["first aid"].value;
+		skills0["forcewall systems"] = csvSpec["forcewall systems"].value;
+		skills0["forgery"] = csvSpec["forgery"].value;
+		skills0["gambling"] = csvSpec["gambling"].value;
+		spec.skills["0"] = skills0;
+		
+		var skills1 = {};
+		skills1["geology"] = csvSpec["geology"].value;
+		skills1["gunnery"] = csvSpec["gunnery"].value;
+		skills1["healing"] = csvSpec["healing"].value;
+		skills1["heavy weapons"] = csvSpec["heavy weapons"].value;
+		skills1["hide"] = csvSpec["hide"].value;
+		skills1["history"] = csvSpec["history"].value;
+		skills1["interrogation"] = csvSpec["interrogation"].value;
+		skills1["law"] = csvSpec["law"].value;
+		skills1["leader"] = csvSpec["leader"].value;
+		skills1["linguistics"] = csvSpec["linguistics"].value;
+		skills1["mathematics"] = csvSpec["mathematics"].value;
+		skills1["mechanical"] = csvSpec["mechanical"].value;
+		skills1["medical"] = csvSpec["medical"].value;
+		skills1["melee weapons"] = csvSpec["melee weapons"].value;
+		skills1["mining"] = csvSpec["mining"].value;
+		skills1["missle weapons"] = csvSpec["missle weapons"].value;
+		skills1["navigation"] = csvSpec["navigation"].value;
+		skills1["physics"] = csvSpec["physics"].value;
+		skills1["pick pocket"] = csvSpec["pick pocket"].value;
+		skills1["pilot"] = csvSpec["pilot"].value;
+		skills1["political science"] = csvSpec["political science"].value;
+		spec.skills["1"] = skills1;
+		
+		var skills2 = {};			
+		skills2["probe"] = csvSpec["probe"].value;
+		skills2["psychology"] = csvSpec["psychology"].value;
+		skills2["research"] = csvSpec["research"].value;
+		skills2["recon"] = csvSpec["recon"].value;
+		skills2["security systems"] = csvSpec["security systems"].value;
+		skills2["ships' tactics"] = csvSpec["ships' tactics"].value;
+		skills2["stardrive ops"] = csvSpec["stardrive ops"].value;
+		skills2["stealth"] = csvSpec["stealth"].value;
+		skills2["streetwise"] = csvSpec["streetwise"].value;
+		skills2["surgery"] = csvSpec["surgery"].value;
+		skills2["survival"] = csvSpec["survival"].value;
+		skills2["swim"] = csvSpec["swim"].value;
+		skills2["tactics"] = csvSpec["tactics"].value;
+		skills2["teleport systems"] = csvSpec["teleport systems"].value;
+		skills2["thrown weapons"] = csvSpec["thrown weapons"].value;
+		skills2["unarmed combat"] = csvSpec["unarmed combat"].value;
+		skills2["vehicle (air)"] = csvSpec["vehicle (air)"].value;
+		skills2["vehicle (ground)"] = csvSpec["vehicle (ground)"].value;
+		skills2["vehicle (water)"] = csvSpec["vehicle (water)"].value;
+		skills2["weapons systems"] = csvSpec["weapons systems"].value;
+		skills2["telepathy"] = csvSpec["telepathy"].value;
+		spec.skills["2"] = skills2;
 	}
 };

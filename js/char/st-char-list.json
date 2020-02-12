@@ -74,6 +74,11 @@
 			"allegiance": "Blakes-7",
 			"name": "Elise",
 			"uri": "st-blakes-7.csv:Elise"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Federation Citizens (Inner Worlds)",
+			"uri": "dynamic:fciw"
 		}		
 	]	
 }

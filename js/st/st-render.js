@@ -186,7 +186,7 @@ st.render = {
 				var dispKey = _.capitalize2(key.replace(/-/g, ' '));
 				
 				var stat = st.character.relStat[key].value;
-				st.log(st.character.relStat);
+				//st.log(st.character.relStat);
 								
 				if (dispKey) {
 					elm += ("<span class=\"st-item st-skill-item-key st-skill-item-key-" + classKey + "\""
