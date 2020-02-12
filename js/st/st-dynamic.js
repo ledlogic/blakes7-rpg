@@ -128,7 +128,7 @@ st.dynamic = {
 			
 			var physicalGrade = st.dynamic.calcGrade(physicalDie);
 			spec.grade.physical = physicalGrade;
-			spec.attributes["str"] = physicalGrade["attr"];
+			spec.attributes["str"] = 18;
 			spec.attributes["siz"] = physicalGrade["attr"];
 			spec.attributes["end"] = physicalGrade["attr"];
 			spec.attributes["ini"] = physicalGrade["attr"];
@@ -293,6 +293,15 @@ st.dynamic = {
 				st.character.setSkill("survival", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
 				st.character.setSkill("thrown weapons", 30 + ((char == "safo" || char == "saft") ? 15 : 0));
 				st.character.setSkill("unarmed combat", 40 + ((char == "safo" || char == "saft") ? 15 : 0));			
+				break;
+			case 'mu':
+				spec.overview["ship"] = "Federation";
+				spec.overview["position"] = "Mutoid";
+				st.character.setSkill("firearms", 55);
+				st.character.setSkill("recon", 40);
+				st.character.setSkill("survival", 25);
+				st.character.setSkill("thrown weapons", 30);
+				st.character.setSkill("unarmed combat", 55);			
 				break;
 		}
 		st.character.splitSkills();

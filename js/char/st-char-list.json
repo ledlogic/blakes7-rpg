@@ -2,11 +2,6 @@
 	"characters": [
 		{
 			"allegiance": "Blakes-7",
-			"name": "Avalon (Android)",
-			"uri": "st-blakes-7.csv:Avalon"
-		},
-		{
-			"allegiance": "Blakes-7",
 			"name": "Kerr Avon",
 			"uri": "st-blakes-7.csv:Avon"
 		},
@@ -24,11 +19,6 @@
 			"allegiance": "Blakes-7",
 			"name": "Olag Gan",
 			"uri": "st-blakes-7.csv:Gan"
-		},
-		{
-			"allegiance": "Blakes-7",
-			"name": "Project Gan",
-			"uri": "st-blakes-7.csv:ProjectGan"
 		},
 		{
 			"allegiance": "Blakes-7",
@@ -56,12 +46,12 @@
 			"uri": "st-blakes-7.csv:Soolin"
 		},
 		{
-			"allegiance": "Blakes-7",
+			"allegiance": "Rebellion",
 			"name": "Veron",
 			"uri": "st-blakes-7.csv:Veron"
 		},
 		{
-			"allegiance": "Blakes-7",
+			"allegiance": "Rebellion",
 			"name": "Shya",
 			"uri": "st-blakes-7.csv:Shya"
 		},
@@ -74,6 +64,11 @@
 			"allegiance": "Blakes-7",
 			"name": "Elise",
 			"uri": "st-blakes-7.csv:Elise"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Avalon (Android)",
+			"uri": "st-blakes-7.csv:Avalon"
 		},
 		{
 			"allegiance": "Federation",
@@ -99,6 +94,16 @@
 			"allegiance": "Federation",
 			"name": "Federation Officer",
 			"uri": "dynamic:fo"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Mutoid",
+			"uri": "dynamic:mu"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Project Gan",
+			"uri": "st-blakes-7.csv:ProjectGan"
 		},
 		{
 			"allegiance": "Space Assault Force",
