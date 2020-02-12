@@ -456,3 +456,30 @@
 	height: 340px;
 	width: 896px;
 }
+
+.st-equipment-item {
+	clear: both;
+	font-size: 12px;
+}
+
+.st-equipment-item dt, .st-equipment-item dd {
+	float: left;
+	font-weight: normal;
+	margin: 0 4px;
+}
+
+.st-skill-extreme {
+	color: blue;
+	font-weight: bold;
+}
+
+.st-skill-high {
+	color: green;
+	font-weight: bold;
+}
+
+.st-skill-medium {
+}
+
+.st-skill-low {
+}

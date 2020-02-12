@@ -15,26 +15,9 @@ st.character = {
 		if (uri.indexOf(".html") > -1) {
 			window.location = uri;
 		}
-		if (uri.indexOf(".json") > -1) {
-			st.character.loadCharJson(uri);
-		}
 		if (uri.indexOf(".csv") > -1) {
 			st.character.loadCharCsv(uri);
 		}
-	},
-	loadCharJson: function(uri) {
-		st.log("loading char from json");
-		
-		$.ajax("js/char/" + uri)
-			.done(function(data, status, jqxhr) {
-				st.character.spec = data.spec;
-				setTimeout(st.character.render, 10);
-			})
-			.fail(function() {
-				alert("Error: unable to load character.");
-			})
-			.always(function() {
-			});
 	},
 	loadCharCsv: function(uri) {
 		st.log("loading char from csv, uri[" + uri + "]");
@@ -248,8 +231,8 @@ st.character = {
 			spec.attributes["hp"] = st.character.calcHp();
 			
 			st.character.splitSkills();
-			
-			setTimeout(st.render.render, 10);
+
+			st.character.loadEquipment();
 		}
 	},
 	
@@ -406,5 +389,20 @@ st.character = {
 		} catch (e) {
 			st.log("Cannot update skill[" + skill + "], skillValue[" + skillValue + "], value[" + value + "]")
 		}
+	},
+	
+	loadEquipment: function() {
+		var spec = st.character.spec;
+		var searchName = spec.overview["searchName"].toLowerCase();
+		$.ajax("js/equipment/st-" + searchName + ".json")
+			.done(function(data, status, jqxhr) {
+				spec.equipment = data.equipment;
+			})
+			.fail(function(e) {
+				st.log("Error: unable to load equipment for searchName[" + searchName + "]", e);
+			})
+			.always(function() {
+				setTimeout(st.render.render, 10);
+			});
 	}
 };

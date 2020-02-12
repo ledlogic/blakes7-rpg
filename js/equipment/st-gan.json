@@ -1,0 +1,21 @@
+{
+    "equipment": [
+    	{
+            "name": "Big Earthy Space Overalls"
+        },
+        {
+            "name": "Neural limiter",
+            "note": "Repaired by cybersurgeon in episode 10, Breakdown"
+        },
+        {
+            "name": "Club",
+            "damage": "1d6+2",
+            "weight": "2kg"
+        },
+        {
+            "name": "Axe",
+            "damage": "2d6+2",
+            "weight": "4kg"
+        }
+    ]
+}

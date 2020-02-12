@@ -136,9 +136,36 @@ st.render = {
 	renderGrid: function() {
 		st.log("rendering grid");
 		
+		var spec = st.character.spec;
+		var equipment = spec.equipment;
+		
+		// equipment
+		var h = [];
+		if (equipment) {
+			h.push("<h5>Equipment</h5>");
+			h.push("<ul>");
+			for (var i=0; i<equipment.length; i++) {
+				var ds = [];
+				_.each(equipment[i], function(value, key) {
+					if (key == "name") {
+						ds.push("<dt>" + value + "</dt>");
+					} else {
+						ds.push("<dt>" + key + ":</dt>");
+						ds.push("<dd>" + value + "</dd>");
+					}
+				});
+				h.push("<li class=\"st-equipment-item\">"
+					+ ds.join("\n")
+					+ "</li>");		
+			}
+			h.push("</ul>");
+		}
+		
 		// page
 		var $grid = $("<div class=\"st-section st-grid\">"
-				  + "</div>");
+				  + h.join("\n")
+				  + "</div>");		
+		
 		st.render.$pageft.append($grid);
 	},
 	renderOverview: function() {
@@ -188,17 +215,19 @@ st.render = {
 				
 				var stat = st.character.relStat[key].value;
 				//st.log(st.character.relStat);
-								
+
+				var hclass = st.render.calcSkillClass(h);
+				
 				if (dispKey) {
-					elm += ("<span class=\"st-item st-skill-item-key st-skill-item-key-" + classKey + "\""
+					elm += ("<span class=\"st-item st-skill-item-key st-skill-item-key-" + classKey + " " + hclass + "\""
 							+" style=\"top: " + y + "px\""
 							+">" + dispKey + "</span>");
 				}
-				elm += ("<span class=\"st-item st-skill-item-stat st-skill-item-" + key + "\""
+				elm += ("<span class=\"st-item st-skill-item-stat st-skill-item-" + key + " " + hclass + "\""
 						+" style=\"top: " + y + "px\""
 						+">" + stat + "</span>");
 
-				elm += ("<span class=\"st-item st-skill-item st-skill-item-" + key + "\""
+				elm += ("<span class=\"st-item st-skill-item st-skill-item-" + key + " " + hclass + "\""
 						+" style=\"top: " + y + "px\""
 						+">" + h + "</span>");
 				
@@ -207,6 +236,24 @@ st.render = {
 			});
 			st.render.$pageft.append($skillsI);
 		}		
+	},
+	calcSkillClass: function(h) {
+		var ret = "";
+		switch (true) {
+			case (h>=80):
+				ret = "st-skill-extreme";
+				break;
+			case (h>=60):
+				ret = "st-skill-high";
+				break;
+			case (h>=40):
+				ret = "st-skill-medium";
+				break;
+			default:
+				ret = "st-skill-low";
+				break;
+		}
+		return ret;
 	},
 	renderStress: function() {
 		st.log("rendering stress");

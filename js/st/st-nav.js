@@ -23,15 +23,15 @@ st.nav = {
 		st.log("loading chars");
 
 		$.ajax("js/char/st-char-list.json")
-		.done(function(data, status, jqxhr) {
-			st.nav.characters = data.characters;
-			setTimeout(st.nav.renderChars, 10);
-		})
-		.fail(function() {
-			alert("Error: unable to load character list.");
-		})
-		.always(function() {
-		});
+			.done(function(data, status, jqxhr) {
+				st.nav.characters = data.characters;
+				setTimeout(st.nav.renderChars, 10);
+			})
+			.fail(function() {
+				alert("Error: unable to load character list.");
+			})
+			.always(function() {
+			});
 	},
 	renderChars: function() {
 		st.log("rendering chars");
