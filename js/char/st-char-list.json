@@ -77,18 +77,38 @@
 		},
 		{
 			"allegiance": "Federation",
-			"name": "Federation Citizens (Inner Worlds)",
+			"name": "Federation Citizen (Inner Worlds)",
 			"uri": "dynamic:fciw"
 		},
 		{
 			"allegiance": "Federation",
-			"name": "Federation Citizens (Outer Worlds)",
+			"name": "Federation Citizen (Outer Worlds)",
 			"uri": "dynamic:fcow"
 		},
 		{
 			"allegiance": "Federation",
 			"name": "Federation Fleet",
 			"uri": "dynamic:ff"
-		}		
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Federation Trooper",
+			"uri": "dynamic:ft"
+		},
+		{
+			"allegiance": "Federation",
+			"name": "Federation Officer",
+			"uri": "dynamic:fo"
+		},
+		{
+			"allegiance": "Space Assault Force",
+			"name": "Trooper",
+			"uri": "dynamic:saft"
+		},
+		{
+			"allegiance": "Space Assault Force",
+			"name": "Officer",
+			"uri": "dynamic:safo"
+		}
 	]	
 }

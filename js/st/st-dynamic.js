@@ -108,12 +108,24 @@ st.dynamic = {
 			
 			// physical
 			var physicalDie = null;
+			
 			// fleet is physical gamma
 			if (char == "ff") {
 				physicalDie = 65;
-				spec.overview["ship"] = "Federation Fleet"; 
-				spec.overview["position"] = "Crewman";
+			}			
+			if (char == "ft") {
+				mentalDie = 85;
 			}
+			if (char == "fo") {
+				mentalDie = 85;
+			}
+			if (char == "saft") {
+				mentalDie = 100;
+			}
+			if (char == "safo") {
+				mentalDie = 100;
+			}
+			
 			var physicalGrade = st.dynamic.calcGrade(physicalDie);
 			spec.grade.physical = physicalGrade;
 			spec.attributes["str"] = physicalGrade["attr"];
@@ -126,11 +138,34 @@ st.dynamic = {
 			var mentalDie = null;
 			// fleet is mental beta or alpha
 			if (char == "ff") {
+				spec.overview["ship"] = "Federation"; 
+				spec.overview["position"] = "Crewman";
 				mentalDie = 85 + (Math.random() > 0.5 ? 10 : 0);
 				if (mentalDie > 85) {
 					spec.overview["position"] = "Officer";	
 				}
 			}
+			if (char == "ft") {
+				spec.overview["ship"] = "Federation"; 
+				spec.overview["position"] = "Trooper";
+				mentalDie = 65;
+			}
+			if (char == "fo") {
+				spec.overview["ship"] = "Federation"; 
+				spec.overview["position"] = "Officer";
+				mentalDie = 100;
+			}
+			if (char == "saft") {
+				spec.overview["ship"] = "Space Assault force"; 
+				spec.overview["position"] = "Trooper";
+				mentalDie = 85;
+			}
+			if (char == "safo") {
+				spec.overview["ship"] = "Space Assault force"; 
+				spec.overview["position"] = "Officer";
+				mentalDie = 100;
+			}
+			
 			var mentalGrade = st.dynamic.calcGrade(mentalDie);
 			spec.grade.mental = mentalGrade;
 			spec.attributes["per"] = mentalGrade["attr"];
@@ -244,6 +279,20 @@ st.dynamic = {
 					st.character.setSkill("pilot", 40);
 					st.character.setSkill("ship tactics", 25);
 				}
+				break;
+			case 'safo':
+			case 'fo':
+				st.character.setSkill("administration", 20 + (char == "safo" ? 15 : 0));
+				st.character.setSkill("leader", 20 + (char == "safo" ? 15 : 0));
+				st.character.setSkill("tactics", 25 + (char == "safo" ? 15 : 0));
+				// no break
+			case 'saft':
+			case 'ft':
+				st.character.setSkill("firearms", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("recon", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("survival", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("thrown weapons", 30 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("unarmed combat", 40 + ((char == "safo" || char == "saft") ? 15 : 0));			
 				break;
 		}
 		st.character.splitSkills();
