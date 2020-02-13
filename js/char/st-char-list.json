@@ -107,6 +107,11 @@
 		},
 		{
 			"allegiance": "Federation",
+			"name": "Primitive",
+			"uri": "dynamic:prim"
+		},
+		{
+			"allegiance": "Federation",
 			"name": "Project Gan",
 			"uri": "st-blakes-7.csv:ProjectGan"
 		},

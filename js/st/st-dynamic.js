@@ -128,6 +128,9 @@ st.dynamic = {
 			if (char == "out") {
 				physicalDie = 85;
 			}
+			if (char == "prim") {
+				physicalDie = 85;
+			}
 			
 			var physicalGrade = st.dynamic.calcGrade(physicalDie);
 			spec.grade.physical = physicalGrade;
@@ -169,7 +172,10 @@ st.dynamic = {
 				mentalDie = 100;
 			}
 			if (char == "out") {
-				physicalDie = 85;
+				mentalDie = 85;
+			}
+			if (char == "prim") {
+				mentalDie = 45;
 			}
 			
 			var mentalGrade = st.dynamic.calcGrade(mentalDie);
@@ -340,6 +346,15 @@ st.dynamic = {
 					value += st.dynamic.calcMentalSkillBonus();
 					st.character.updateSkill(skill, value);
 				});
+				break;
+			case 'prim':
+				spec.overview["ship"] = "Federation";
+				spec.overview["position"] = "Primitive";
+				st.character.setSkill("farming", 20);
+				st.character.setSkill("recon", 30);
+				st.character.setSkill("melee weapons", 40);
+				st.character.setSkill("missle weapons", 25);
+				st.character.setSkill("survival", 40);
 				break;		
 		}
 		st.character.splitSkills();
