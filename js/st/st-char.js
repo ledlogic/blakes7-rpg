@@ -8,7 +8,6 @@ st.character = {
 	},
 	loadChar: function(uri) {
 		st.log("loading char uri[" + uri + "]");
-		
 		if (uri.indexOf("dynamic") > -1) {
 			st.dynamic.loadChar(uri);
 		}
@@ -337,7 +336,7 @@ st.character = {
 		skills1["medical"] = csvSpec["medical"].value;
 		skills1["melee weapons"] = csvSpec["melee weapons"].value;
 		skills1["mining"] = csvSpec["mining"].value;
-		skills1["missle weapons"] = csvSpec["missle weapons"].value;
+		skills1["missile weapons"] = csvSpec["missile weapons"].value;
 		skills1["navigation"] = csvSpec["navigation"].value;
 		skills1["physics"] = csvSpec["physics"].value;
 		skills1["pick pocket"] = csvSpec["pick pocket"].value;

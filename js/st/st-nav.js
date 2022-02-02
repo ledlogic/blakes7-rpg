@@ -21,8 +21,9 @@ st.nav = {
 	},
 	loadChars: function() {
 		st.log("loading chars");
-
-		$.ajax("js/char/st-char-list.json")
+		var d = (new Date()).getTime();
+		var url = "js/char/st-char-list.json?d=" + d;
+		$.ajax(url)
 			.done(function(data, status, jqxhr) {
 				st.nav.characters = data.characters;
 				setTimeout(st.nav.renderChars, 10);

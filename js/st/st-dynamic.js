@@ -353,7 +353,7 @@ st.dynamic = {
 				st.character.setSkill("farming", 20);
 				st.character.setSkill("recon", 30);
 				st.character.setSkill("melee weapons", 40);
-				st.character.setSkill("missle weapons", 25);
+				st.character.setSkill("missile weapons", 25);
 				st.character.setSkill("survival", 40);
 				break;		
 		}

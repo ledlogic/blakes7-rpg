@@ -72,6 +72,11 @@
 		},
 		{
 			"allegiance": "Federation",
+			"name": "Carnell",
+			"uri": "st-blakes-7.csv:Carnell"
+		},
+		{
+			"allegiance": "Federation",
 			"name": "Federation Citizen (Inner Worlds)",
 			"uri": "dynamic:fciw"
 		},

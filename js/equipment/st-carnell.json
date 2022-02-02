@@ -1,0 +1,19 @@
+{
+    "equipment": [
+    	{
+    		"name": "Stylish outfit"
+    	},
+        {
+            "name": "Chess computer",
+            "cost": "Excessive"
+        },
+        {
+            "name": "Federation Blaster Pistol",
+            "Range": "10m",
+            "ROF": "1",
+            "Shots": "30",
+            "Dam": "2d6",
+            "Weight": "1kg"
+        }
+    ]
+}
