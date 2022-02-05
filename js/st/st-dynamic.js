@@ -265,8 +265,9 @@ st.dynamic = {
 		st.log("dynamic loadSpec, char[" + char + "]");
 		switch (char) {
 			case 'fciw':
-				spec.overview["ship"] = "Inner World";
 				spec.overview["position"] = "Federation Citizen";
+				spec.overview["searchName"] = "Inner-world";
+				spec.overview["ship"] = "Inner World";
 				var skills = st.dynamic.findNSkillsOfAttr("REA", 4);
 				_.each(skills, function(skill, index) {
 					var value = (index === 0 ? 35 : 15);
@@ -275,6 +276,7 @@ st.dynamic = {
 				});
 				break;
 			case 'fcow':
+				spec.overview["searchName"] = "Outer-world";
 				spec.overview["ship"] = "Outer World";
 				spec.overview["position"] = "Federation Citizen";
 				var value = 20;
@@ -298,6 +300,7 @@ st.dynamic = {
 				});
 				break;
 			case 'ff':
+				spec.overview["searchName"] = "Fleet";
 				st.character.setSkill("detector ops", 25);
 				st.character.setSkill("firearms", 25);
 				st.character.setSkill("forcewall systems", 25);
@@ -314,12 +317,19 @@ st.dynamic = {
 				break;
 			case 'safo':
 			case 'fo':
+				spec.overview["searchName"] = "Officer";
 				st.character.setSkill("administration", 20 + (char == "safo" ? 15 : 0));
 				st.character.setSkill("leader", 20 + (char == "safo" ? 15 : 0));
 				st.character.setSkill("tactics", 25 + (char == "safo" ? 15 : 0));
-				// no break
+				st.character.setSkill("firearms", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("recon", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("survival", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("thrown weapons", 30 + ((char == "safo" || char == "saft") ? 15 : 0));
+				st.character.setSkill("unarmed combat", 40 + ((char == "safo" || char == "saft") ? 15 : 0));			
+				break;
 			case 'saft':
 			case 'ft':
+				spec.overview["searchName"] = "Trooper";
 				st.character.setSkill("firearms", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
 				st.character.setSkill("recon", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
 				st.character.setSkill("survival", 25 + ((char == "safo" || char == "saft") ? 15 : 0));
@@ -327,8 +337,9 @@ st.dynamic = {
 				st.character.setSkill("unarmed combat", 40 + ((char == "safo" || char == "saft") ? 15 : 0));			
 				break;
 			case 'mu':
-				spec.overview["ship"] = "Federation";
 				spec.overview["position"] = "Mutoid";
+				spec.overview["searchName"] = "Mutoid";
+				spec.overview["ship"] = "Federation";
 				st.character.setSkill("firearms", 55);
 				st.character.setSkill("recon", 40);
 				st.character.setSkill("survival", 25);
@@ -336,8 +347,9 @@ st.dynamic = {
 				st.character.setSkill("unarmed combat", 55);			
 				break;
 			case 'out':
-				spec.overview["ship"] = "Federation";
 				spec.overview["position"] = "Outsider";
+				spec.overview["searchName"] = "Outsider";
+				spec.overview["ship"] = "Federation";
 				st.character.setSkill("survival", 15);
 				var skills = st.dynamic.findNSkillsOfAttr("REA", 4);
 				var gradeBonus = st.dynamic.calcOutsiderSkillBonus();
@@ -348,8 +360,9 @@ st.dynamic = {
 				});
 				break;
 			case 'prim':
-				spec.overview["ship"] = "Federation";
+				spec.overview["searchName"] = "Primitive";
 				spec.overview["position"] = "Primitive";
+				spec.overview["ship"] = "Federation";
 				st.character.setSkill("farming", 20);
 				st.character.setSkill("recon", 30);
 				st.character.setSkill("melee weapons", 40);

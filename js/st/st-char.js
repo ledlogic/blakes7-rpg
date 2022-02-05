@@ -408,6 +408,28 @@ st.character = {
 				st.log("Error: unable to load equipment for searchName[" + searchName + "]", e);
 			})
 			.always(function() {
+				st.character.loadTxt();
+			});
+	},
+	
+	loadTxt: function() {
+		st.log("loading text");
+		var spec = st.character.spec;
+		var searchName = spec.overview["searchName"];
+		if (!searchName) {
+			setTimeout(st.render.render, 10);
+			return;
+		}
+		var txt = searchName.toLowerCase();
+		var d = (new Date()).getTime();
+		var url = "txt/" + txt + ".txt?d=" + d;
+		$.ajax(url)
+			.done(function(data, status, jqxhr) {
+				spec.txt = data;
+			})
+			.fail(function() {
+			})
+			.always(function() {
 				setTimeout(st.render.render, 10);
 			});
 	}

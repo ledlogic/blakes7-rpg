@@ -161,6 +161,14 @@ st.render = {
 			h.push("</ul>");
 		}
 		
+		var txt = spec.txt;
+		if (txt) {
+			h.push("<h5>Background</h5>");
+			h.push("<p class=\"st-txt\">");
+			h.push(txt)
+			h.push("</p>");
+		}
+		
 		// page
 		var $grid = $("<div class=\"st-section st-grid\">"
 				  + h.join("\n")
